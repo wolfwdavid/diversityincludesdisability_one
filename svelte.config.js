@@ -13,7 +13,11 @@ const config = {
 		}),
 		paths: {
 			// '' locally so dev/preview work from root; CI sets BASE_PATH=/diversityincludesdisability_one
-			base: process.env.BASE_PATH ?? ''
+			base: process.env.BASE_PATH ?? '',
+			// Absolute (base-prefixed) URLs, NOT relative. Required so the 404.html SPA
+			// fallback loads /_app assets correctly from ANY unmatched depth on Pages (DEPLOY-03),
+			// and so assets resolve under the repo sub-path (DEPLOY-02). Kit 2.x defaults this to true.
+			relative: false
 		}
 	}
 };
