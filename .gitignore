@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build / SvelteKit output
+/build/
+/.svelte-kit/
+/dist/
+/package/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Private / 501c3-pending source material — NEVER commit
+*.notion
+notion-export/
+/private/
+/secrets/
+*.secret.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# Test / tool output
+/playwright-report/
+/test-results/
+/coverage/
+.lighthouseci/
