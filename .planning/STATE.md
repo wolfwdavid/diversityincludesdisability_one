@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-foundation-static-deploy-01-PLAN.md
-last_updated: "2026-07-04T21:24:09.904Z"
+stopped_at: Completed 01-foundation-static-deploy-02-PLAN.md
+last_updated: "2026-07-04T21:34:19.800Z"
 progress:
   total_phases: 6
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 01 (foundation-static-deploy) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -47,6 +47,7 @@ Plan: 2 of 3
 
 *Updated after each plan completion*
 | Phase 01-foundation-static-deploy P01 | 14 | 3 tasks | 20 files |
+| Phase 01-foundation-static-deploy P02 | 5 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -63,6 +64,8 @@ Recent decisions affecting current work:
 - [Phase 1 plan]: adapter-static does NOT auto-emit `.nojekyll` — ship `static/.nojekyll` manually (DEPLOY-04, treated as mandatory).
 - [Phase 01-foundation-static-deploy]: paths.relative=false so absolute base-prefixed URLs survive the 404.html deep-link fallback at any depth (Kit 2.x defaults relative=true, which breaks it)
 - [Phase 01-foundation-static-deploy]: svelte.config.js normalized as canonical kit-config; vite.config.ts reduced to bare sveltekit() (sv 0.16.2 scaffold inlined config in vite.config.ts)
+- [Phase 01-foundation-static-deploy]: Deploy CI uses the official two-job upload-pages-artifact -> deploy-pages flow with BASE_PATH injected from the repo name; configure-pages omitted (BASE_PATH set manually)
+- [Phase 01-foundation-static-deploy]: Wave 0 smoke harness (Playwright spec + curl matrix) scaffolded against a swappable BASE_URL but intentionally unrun until 01-03 deploys the live site; action pins kept at RESEARCH defaults (v4/v4/v3/v4) as no WebFetch reconciliation tool was available
 
 ### Pending Todos
 
@@ -78,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04T21:24:09.899Z
-Stopped at: Completed 01-foundation-static-deploy-01-PLAN.md
+Last session: 2026-07-04T21:34:04.347Z
+Stopped at: Completed 01-foundation-static-deploy-02-PLAN.md
 Resume file: None

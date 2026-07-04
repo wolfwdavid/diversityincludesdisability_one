@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-scaffold-static-config-PLAN.md — Scaffold SvelteKit (minimal+TS) + adapter-static (`base` via `BASE_PATH`, `prerender=true`, `trailingSlash:'always'`, `fallback:'404.html'`, `strict:true`), `static/.nojekyll`, base-safe skeleton `/` + `/about`, privacy `.gitignore`; `npm run build` green
-- [ ] 01-02-ci-deploy-and-smoke-infra-PLAN.md — GitHub Actions `deploy.yml` (Node 22, `BASE_PATH` from repo name, Pages permissions + concurrency, upload-artifact→deploy-pages) + Wave 0 live-URL smoke harness (Playwright config/spec + `verify-deploy.sh` curl matrix)
+- [x] 01-02-ci-deploy-and-smoke-infra-PLAN.md — GitHub Actions `deploy.yml` (Node 22, `BASE_PATH` from repo name, Pages permissions + concurrency, upload-artifact→deploy-pages) + Wave 0 live-URL smoke harness (Playwright config/spec + `verify-deploy.sh` curl matrix)
 - [ ] 01-03-deploy-and-live-verify-PLAN.md — Push repo, one-time Pages Source: GitHub Actions, then verify DEPLOY-01..04 green against the live URL (curl matrix + Playwright smoke)
 
 ### Phase 2: Design System & Dual Theme
