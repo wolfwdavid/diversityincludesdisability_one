@@ -12,7 +12,7 @@ Every visitor — regardless of ability, device, or assistive technology — get
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Static build (SvelteKit static adapter) deployable to GitHub Pages — *Validated in Phase 1: Foundation & Static Deploy. Live at https://wolfwdavid.github.io/diversityincludesdisability_one/ with DEPLOY-01..04 verified against the live URL (base path, .nojekyll, prerender, 404 deep-link fallback, CI deploy on push to main).*
 
 ### Active
 
@@ -22,7 +22,6 @@ Every visitor — regardless of ability, device, or assistive technology — get
 - [ ] Premium mode: one performant 3D hero showpiece (Three.js/Threlte)
 - [ ] Full-site content mirrored from diversityincludesdisability.org (real copy)
 - [ ] Pages: Home, About/Mission, Programs & Services, Get Involved/Donate, Blog/News, Events, Contact
-- [ ] Static build (SvelteKit static adapter) deployable to GitHub Pages
 - [ ] Blog/News driven by markdown content (static, no server)
 - [ ] Contact / Volunteer forms functional on a static host (third-party form backend)
 - [ ] Donate path (link-out to the org's existing donation platform — no server-side payments)
@@ -83,4 +82,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-04 after initialization*
+*Last updated: 2026-07-04 after Phase 1 (Foundation & Static Deploy) completion — site live on GitHub Pages*
