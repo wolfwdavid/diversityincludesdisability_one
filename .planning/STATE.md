@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-foundation-static-deploy-02-PLAN.md
-last_updated: "2026-07-04T21:34:19.800Z"
+stopped_at: Completed 01-foundation-static-deploy-03-PLAN.md (Phase 1 complete)
+last_updated: "2026-07-04T22:24:01.537Z"
 progress:
   total_phases: 6
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
+  completed_plans: 3
 ---
 
 # Project State
@@ -48,6 +48,7 @@ Plan: 3 of 3
 *Updated after each plan completion*
 | Phase 01-foundation-static-deploy P01 | 14 | 3 tasks | 20 files |
 | Phase 01-foundation-static-deploy P02 | 5 | 2 tasks | 6 files |
+| Phase 01-foundation-static-deploy P03 | 20 | 1 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-static-deploy]: svelte.config.js normalized as canonical kit-config; vite.config.ts reduced to bare sveltekit() (sv 0.16.2 scaffold inlined config in vite.config.ts)
 - [Phase 01-foundation-static-deploy]: Deploy CI uses the official two-job upload-pages-artifact -> deploy-pages flow with BASE_PATH injected from the repo name; configure-pages omitted (BASE_PATH set manually)
 - [Phase 01-foundation-static-deploy]: Wave 0 smoke harness (Playwright spec + curl matrix) scaffolded against a swappable BASE_URL but intentionally unrun until 01-03 deploys the live site; action pins kept at RESEARCH defaults (v4/v4/v3/v4) as no WebFetch reconciliation tool was available
+- [Phase 01-foundation-static-deploy]: Branded 404 added in the foundation via src/routes/+error.svelte (DEPLOY-03 'branded' half); Phase 6 (06-02) refines it into the final a11y-hardened 404
+- [Phase 01-foundation-static-deploy]: Live-verify surfaced two latent 01-02 harness bugs (Playwright sub-path baseURL reset to origin; verify-deploy.sh over-asserted client-rendered text on the static SPA 404 shell) — both fixed so the harness is a valid gate
 
 ### Pending Todos
 
@@ -81,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04T21:34:04.347Z
-Stopped at: Completed 01-foundation-static-deploy-02-PLAN.md
+Last session: 2026-07-04T22:18:12.858Z
+Stopped at: Completed 01-foundation-static-deploy-03-PLAN.md (Phase 1 complete)
 Resume file: None

@@ -12,7 +12,7 @@ A static, prerendered SvelteKit site for Eman Rimawi's disability-advocacy nonpr
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Static Deploy** - Prove a blank SvelteKit page ships live to the GitHub Pages sub-path with correct base path, `.nojekyll`, and deep-link 404 handling
+- [x] **Phase 1: Foundation & Static Deploy** - Prove a blank SvelteKit page ships live to the GitHub Pages sub-path with correct base path, `.nojekyll`, and deep-link 404 handling
 - [ ] **Phase 2: Design System & Dual Theme** - Two complete peer themes (Premium + Accessible) as token sets, with a no-flash, persistent, accessible toggle
 - [ ] **Phase 3: App Shell, Content Pipeline & Pages** - The full seven-page accessible site with real DID content and a markdown-driven blog, standing alone without forms or 3D
 - [ ] **Phase 4: Forms & Donate** - Accessible contact/volunteer forms via a static-host backend plus a safe donate link-out
@@ -35,7 +35,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-scaffold-static-config-PLAN.md — Scaffold SvelteKit (minimal+TS) + adapter-static (`base` via `BASE_PATH`, `prerender=true`, `trailingSlash:'always'`, `fallback:'404.html'`, `strict:true`), `static/.nojekyll`, base-safe skeleton `/` + `/about`, privacy `.gitignore`; `npm run build` green
 - [x] 01-02-ci-deploy-and-smoke-infra-PLAN.md — GitHub Actions `deploy.yml` (Node 22, `BASE_PATH` from repo name, Pages permissions + concurrency, upload-artifact→deploy-pages) + Wave 0 live-URL smoke harness (Playwright config/spec + `verify-deploy.sh` curl matrix)
-- [ ] 01-03-deploy-and-live-verify-PLAN.md — Push repo, one-time Pages Source: GitHub Actions, then verify DEPLOY-01..04 green against the live URL (curl matrix + Playwright smoke)
+- [x] 01-03-deploy-and-live-verify-PLAN.md — Push repo, one-time Pages Source: GitHub Actions, then verify DEPLOY-01..04 green against the live URL (curl matrix + Playwright smoke)
 
 ### Phase 2: Design System & Dual Theme
 **Goal**: Two complete, peer-designed themes (Premium and Accessible) exist as CSS-custom-property token sets, and a visitor can toggle between them with no flash of the wrong theme, persistence across visits, accessible-first defaulting, and a keyboard/SR-friendly toggle. Designing both token sets up front structurally prevents the accessible-as-fallback anti-pattern.
@@ -124,7 +124,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Static Deploy | 0/3 | Planned | - |
+| 1. Foundation & Static Deploy | 3/3 | Complete | 2026-07-04 |
 | 2. Design System & Dual Theme | 0/3 | Not started | - |
 | 3. App Shell, Content Pipeline & Pages | 0/5 | Not started | - |
 | 4. Forms & Donate | 0/2 | Not started | - |
