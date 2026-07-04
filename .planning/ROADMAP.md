@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Refreshing or deep-linking to any route on the deployed site resolves (no hard 404) via the configured 404 fallback.
   3. The `_app/` assets are served in production (not silently dropped by Jekyll) — page CSS/JS load and execute.
   4. A push to the main branch triggers the GitHub Actions workflow that rebuilds and redeploys the static site automatically.
-**Plans**: TBD (~3 plans)
+**Plans**: 3 plans (waves 1 → 2 → 3)
 
 Plans:
-- [ ] 01-01: Scaffold SvelteKit + adapter-static (`paths.base` via `BASE_PATH`, `prerender=true`, `trailingSlash:'always'`, `fallback:'404.html'`), `static/.nojekyll`, `.gitignore` for secrets/exports
-- [ ] 01-02: GitHub Actions `deploy.yml` (Node 22, base-path env) publishing to Pages
-- [ ] 01-03: Deploy a skeleton page and verify base path / deep-link 404 / `_app` 200s against the live URL
+- [ ] 01-01-scaffold-static-config-PLAN.md — Scaffold SvelteKit (minimal+TS) + adapter-static (`base` via `BASE_PATH`, `prerender=true`, `trailingSlash:'always'`, `fallback:'404.html'`, `strict:true`), `static/.nojekyll`, base-safe skeleton `/` + `/about`, privacy `.gitignore`; `npm run build` green
+- [ ] 01-02-ci-deploy-and-smoke-infra-PLAN.md — GitHub Actions `deploy.yml` (Node 22, `BASE_PATH` from repo name, Pages permissions + concurrency, upload-artifact→deploy-pages) + Wave 0 live-URL smoke harness (Playwright config/spec + `verify-deploy.sh` curl matrix)
+- [ ] 01-03-deploy-and-live-verify-PLAN.md — Push repo, one-time Pages Source: GitHub Actions, then verify DEPLOY-01..04 green against the live URL (curl matrix + Playwright smoke)
 
 ### Phase 2: Design System & Dual Theme
 **Goal**: Two complete, peer-designed themes (Premium and Accessible) exist as CSS-custom-property token sets, and a visitor can toggle between them with no flash of the wrong theme, persistence across visits, accessible-first defaulting, and a keyboard/SR-friendly toggle. Designing both token sets up front structurally prevents the accessible-as-fallback anti-pattern.
@@ -124,7 +124,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Static Deploy | 0/3 | Not started | - |
+| 1. Foundation & Static Deploy | 0/3 | Planned | - |
 | 2. Design System & Dual Theme | 0/3 | Not started | - |
 | 3. App Shell, Content Pipeline & Pages | 0/5 | Not started | - |
 | 4. Forms & Donate | 0/2 | Not started | - |
