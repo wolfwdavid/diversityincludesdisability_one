@@ -7,10 +7,10 @@
 
 ### Deployment & Foundation
 
-- [ ] **DEPLOY-01**: Site builds fully static (adapter-static) and deploys to GitHub Pages via GitHub Actions
-- [ ] **DEPLOY-02**: All assets and internal links resolve under the repo sub-path (correct `base` path) — styles/links never break on Pages
-- [ ] **DEPLOY-03**: Every route is prerendered and deep links / refreshes resolve (404 fallback configured)
-- [ ] **DEPLOY-04**: `.nojekyll` is emitted so `_app` assets are served by Pages
+- [x] **DEPLOY-01**: Site builds fully static (adapter-static) and deploys to GitHub Pages via GitHub Actions
+- [x] **DEPLOY-02**: All assets and internal links resolve under the repo sub-path (correct `base` path) — styles/links never break on Pages
+- [x] **DEPLOY-03**: Every route is prerendered and deep links / refreshes resolve (404 fallback configured)
+- [x] **DEPLOY-04**: `.nojekyll` is emitted so `_app` assets are served by Pages
 
 ### Theme System
 
@@ -87,10 +87,10 @@ Every v1 requirement maps to exactly one phase (no orphans, no duplicates).
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DEPLOY-01 | Phase 1 | Pending |
-| DEPLOY-02 | Phase 1 | Pending |
-| DEPLOY-03 | Phase 1 | Pending |
-| DEPLOY-04 | Phase 1 | Pending |
+| DEPLOY-01 | Phase 1 | Complete |
+| DEPLOY-02 | Phase 1 | Complete |
+| DEPLOY-03 | Phase 1 | Complete |
+| DEPLOY-04 | Phase 1 | Complete |
 | THEME-01 | Phase 2 | Pending |
 | THEME-02 | Phase 2 | Pending |
 | THEME-03 | Phase 2 | Pending |

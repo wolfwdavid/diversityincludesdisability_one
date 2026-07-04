@@ -1,3 +1,17 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: unknown
+stopped_at: Completed 01-foundation-static-deploy-01-PLAN.md
+last_updated: "2026-07-04T21:24:09.904Z"
+progress:
+  total_phases: 6
+  completed_phases: 0
+  total_plans: 3
+  completed_plans: 1
+---
+
 # Project State
 
 ## Project Reference
@@ -5,20 +19,17 @@
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** Every visitor — regardless of ability, device, or assistive technology — gets a first-class experience of the org's mission. The accessible mode is a peer, not a fallback.
-**Current focus:** Phase 1 — Foundation & Static Deploy
+**Current focus:** Phase 01 — foundation-static-deploy
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation & Static Deploy)
-Plan: 0 of 3 complete (3 plans written, waves 1→2→3)
-Status: Planned — ready to execute
-Last activity: 2026-07-04 — Phase 1 planned (3 plans, DEPLOY-01..04 covered)
-
-Progress: [░░░░░░░░░░] 0%
+Phase: 01 (foundation-static-deploy) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed: 0
 - Average duration: — min
 - Total execution time: 0.0 hours
@@ -30,10 +41,12 @@ Progress: [░░░░░░░░░░] 0%
 | - | - | - | - |
 
 **Recent Trend:**
+
 - Last 5 plans: —
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-foundation-static-deploy P01 | 14 | 3 tasks | 20 files |
 
 ## Accumulated Context
 
@@ -48,6 +61,8 @@ Recent decisions affecting current work:
 - [Roadmap]: WCAG 2.2 AA+ verification is its own final phase (Phase 6) against the deployed build.
 - [Phase 1 plan]: Path model RESOLVED — build for the repo SUB-PATH now (`BASE_PATH=/diversityincludesdisability_one`); custom domain deferred (one-line `base` + `CNAME` change if it ever lands).
 - [Phase 1 plan]: adapter-static does NOT auto-emit `.nojekyll` — ship `static/.nojekyll` manually (DEPLOY-04, treated as mandatory).
+- [Phase 01-foundation-static-deploy]: paths.relative=false so absolute base-prefixed URLs survive the 404.html deep-link fallback at any depth (Kit 2.x defaults relative=true, which breaks it)
+- [Phase 01-foundation-static-deploy]: svelte.config.js normalized as canonical kit-config; vite.config.ts reduced to bare sveltekit() (sv 0.16.2 scaffold inlined config in vite.config.ts)
 
 ### Pending Todos
 
@@ -63,6 +78,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04
-Stopped at: Phase 1 planned — 01-01/01-02/01-03 PLAN.md written, ROADMAP + VALIDATION per-task map populated
-Resume file: None — next action is `/gsd:execute-phase 1`
+Last session: 2026-07-04T21:24:09.899Z
+Stopped at: Completed 01-foundation-static-deploy-01-PLAN.md
+Resume file: None
