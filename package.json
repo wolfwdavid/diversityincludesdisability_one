@@ -9,9 +9,12 @@
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"smoke": "playwright test",
+		"verify:deploy": "bash scripts/verify-deploy.sh"
 	},
 	"devDependencies": {
+		"@playwright/test": "^1.61.1",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.63.0",
@@ -19,6 +22,7 @@
 		"svelte": "^5.56.1",
 		"svelte-check": "^4.7.1",
 		"typescript": "^6.0.3",
-		"vite": "^8.0.16"
+		"vite": "^8.0.16",
+		"vitest": "^4.1.9"
 	}
 }
