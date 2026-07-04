@@ -83,17 +83,53 @@
 
 ## Traceability
 
-Populated during roadmap creation.
+Every v1 requirement maps to exactly one phase (no orphans, no duplicates).
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (to be filled by roadmapper) | — | Pending |
+| DEPLOY-01 | Phase 1 | Pending |
+| DEPLOY-02 | Phase 1 | Pending |
+| DEPLOY-03 | Phase 1 | Pending |
+| DEPLOY-04 | Phase 1 | Pending |
+| THEME-01 | Phase 2 | Pending |
+| THEME-02 | Phase 2 | Pending |
+| THEME-03 | Phase 2 | Pending |
+| THEME-04 | Phase 2 | Pending |
+| THEME-05 | Phase 2 | Pending |
+| THEME-06 | Phase 2 | Pending |
+| PAGE-01 | Phase 3 | Pending |
+| PAGE-02 | Phase 3 | Pending |
+| PAGE-03 | Phase 3 | Pending |
+| PAGE-04 | Phase 3 | Pending |
+| PAGE-05 | Phase 3 | Pending |
+| PAGE-06 | Phase 3 | Pending |
+| PAGE-07 | Phase 3 | Pending |
+| PAGE-08 | Phase 3 | Pending |
+| BLOG-01 | Phase 3 | Pending |
+| BLOG-02 | Phase 3 | Pending |
+| BLOG-03 | Phase 3 | Pending |
+| A11Y-02 | Phase 3 | Pending |
+| A11Y-03 | Phase 3 | Pending |
+| A11Y-04 | Phase 3 | Pending |
+| FORM-01 | Phase 4 | Pending |
+| FORM-02 | Phase 4 | Pending |
+| FORM-03 | Phase 4 | Pending |
+| FORM-04 | Phase 4 | Pending |
+| HERO-01 | Phase 5 | Pending |
+| HERO-02 | Phase 5 | Pending |
+| HERO-03 | Phase 5 | Pending |
+| HERO-04 | Phase 5 | Pending |
+| A11Y-05 | Phase 5 | Pending |
+| A11Y-01 | Phase 6 | Pending |
+| A11Y-06 | Phase 6 | Pending |
 
 **Coverage:**
-- v1 requirements: 31 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 31 ⚠️
+- v1 requirements: 35 total (source list enumerates 35; prior "31" count was an error — corrected during roadmap creation)
+- Mapped to phases: 35 ✓
+- Unmapped: 0
+
+Per-phase counts: Phase 1 = 4, Phase 2 = 6, Phase 3 = 14, Phase 4 = 4, Phase 5 = 5, Phase 6 = 2.
 
 ---
 *Requirements defined: 2026-07-04*
-*Last updated: 2026-07-04 after initial definition*
+*Last updated: 2026-07-04 after roadmap creation (traceability populated, coverage count corrected 31 → 35)*

@@ -1,0 +1,132 @@
+# Roadmap: Diversity Includes Disability — Website
+
+## Overview
+
+A static, prerendered SvelteKit site for Eman Rimawi's disability-advocacy nonprofit, deployed to GitHub Pages under a repo sub-path, shipping two complete peer experiences: a Premium theme (Threlte 3D hero + polished motion) and an Accessible theme (WCAG 2.2 AA+, no WebGL). The journey is strictly dependency-ordered to de-risk the highest-probability failures first: prove a blank page ships to the Pages sub-path (base path / `.nojekyll` / deep-link 404) before any features exist; build both theme token sets and the no-flash toggle before pages so accessibility can never become a subtracted fallback; compose the seven-page accessible content site; add forms and the donate link-out; build the 3D hero **last on purpose** so a fully working accessible site exists without it; and finish with an independent WCAG 2.2 AA+ verification and honest accessibility statement against the deployed build.
+
+## Phases
+
+**Phase Numbering:**
+- Integer phases (1, 2, 3): Planned milestone work
+- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+
+Decimal phases appear between their surrounding integers in numeric order.
+
+- [ ] **Phase 1: Foundation & Static Deploy** - Prove a blank SvelteKit page ships live to the GitHub Pages sub-path with correct base path, `.nojekyll`, and deep-link 404 handling
+- [ ] **Phase 2: Design System & Dual Theme** - Two complete peer themes (Premium + Accessible) as token sets, with a no-flash, persistent, accessible toggle
+- [ ] **Phase 3: App Shell, Content Pipeline & Pages** - The full seven-page accessible site with real DID content and a markdown-driven blog, standing alone without forms or 3D
+- [ ] **Phase 4: Forms & Donate** - Accessible contact/volunteer forms via a static-host backend plus a safe donate link-out
+- [ ] **Phase 5: Premium 3D Hero** - A lazy, capability-gated, poster-first Threlte 3D hero that never blocks or breaks any other experience
+- [ ] **Phase 6: Accessible Hardening & Launch Verification** - Independent WCAG 2.2 AA+ verification of the deployed build and a published, honest accessibility statement
+
+## Phase Details
+
+### Phase 1: Foundation & Static Deploy
+**Goal**: A blank/skeleton SvelteKit site builds fully static (adapter-static) and is live on GitHub Pages under the repo sub-path, with correct base path, `.nojekyll`, deep-link 404 fallback, and a CI deploy pipeline — all verified against the deployed URL, not just locally.
+**Depends on**: Nothing (first phase)
+**Requirements**: DEPLOY-01, DEPLOY-02, DEPLOY-03, DEPLOY-04
+**Success Criteria** (what must be TRUE):
+  1. Visiting the live GitHub Pages URL under the repo sub-path loads the skeleton page with no broken styles or 404 assets.
+  2. Refreshing or deep-linking to any route on the deployed site resolves (no hard 404) via the configured 404 fallback.
+  3. The `_app/` assets are served in production (not silently dropped by Jekyll) — page CSS/JS load and execute.
+  4. A push to the main branch triggers the GitHub Actions workflow that rebuilds and redeploys the static site automatically.
+**Plans**: TBD (~3 plans)
+
+Plans:
+- [ ] 01-01: Scaffold SvelteKit + adapter-static (`paths.base` via `BASE_PATH`, `prerender=true`, `trailingSlash:'always'`, `fallback:'404.html'`), `static/.nojekyll`, `.gitignore` for secrets/exports
+- [ ] 01-02: GitHub Actions `deploy.yml` (Node 22, base-path env) publishing to Pages
+- [ ] 01-03: Deploy a skeleton page and verify base path / deep-link 404 / `_app` 200s against the live URL
+
+### Phase 2: Design System & Dual Theme
+**Goal**: Two complete, peer-designed themes (Premium and Accessible) exist as CSS-custom-property token sets, and a visitor can toggle between them with no flash of the wrong theme, persistence across visits, accessible-first defaulting, and a keyboard/SR-friendly toggle. Designing both token sets up front structurally prevents the accessible-as-fallback anti-pattern.
+**Depends on**: Phase 1
+**Requirements**: THEME-01, THEME-02, THEME-03, THEME-04, THEME-05, THEME-06
+**Success Criteria** (what must be TRUE):
+  1. A visitor can switch between Premium and Accessible themes from a control on any page, and the two look distinctly different across contrast, typography, spacing, and motion — not just motion removed.
+  2. The chosen theme persists across page navigation and across return visits.
+  3. No flash of the wrong theme occurs on load — the correct theme is applied before first paint.
+  4. A first-time visitor whose signals indicate reduced-motion, no-WebGL, or low-power lands on the Accessible theme by default.
+  5. The theme toggle is fully keyboard-operable, announces its state to assistive tech, and preserves focus after switching.
+**Plans**: TBD (~3 plans)
+
+Plans:
+- [ ] 02-01: `reset.css` + `tokens/base.css` + `theme-premium.css` + `theme-accessible.css` (both complete peers)
+- [ ] 02-02: `app.html` no-flash inline script (localStorage + media queries, defaults assistive users to Accessible) + `theme.svelte.ts` rune store
+- [ ] 02-03: Accessible `ThemeToggle` (native button, `aria-live` announcement, focus retained, persisted)
+
+### Phase 3: App Shell, Content Pipeline & Pages
+**Goal**: The token-driven app shell (landmarks, skip-link, Header/Nav/Footer), the mdsvex markdown content pipeline, and all seven route pages with real DID content are built and deployed — a complete, accessible, navigable site that stands on its own without forms or the 3D hero. Shell/landmarks land before content so semantics aren't retrofitted across seven pages.
+**Depends on**: Phase 2
+**Requirements**: PAGE-01, PAGE-02, PAGE-03, PAGE-04, PAGE-05, PAGE-06, PAGE-07, PAGE-08, BLOG-01, BLOG-02, BLOG-03, A11Y-02, A11Y-03, A11Y-04
+**Success Criteria** (what must be TRUE):
+  1. A visitor can reach all seven pages (Home, About/Mission, Programs & Services, Get Involved/Donate, Events, Blog/News, Contact) via a consistent, responsive header/nav and footer.
+  2. The About and Programs pages show Eman Rimawi's real bio and the four real services (trainings, consulting, modeling, speaking); remaining pages carry authored/placeholder content in the org's voice.
+  3. The Blog/News index lists posts with title, date, and summary, and each post opens as its own statically rendered page with build-time-highlighted rich content (no runtime highlighter shipped).
+  4. Every page exposes a working skip-to-content link, correct semantic landmarks, and ordered headings.
+  5. All interactive elements on every page are keyboard-operable with a visible focus indicator and targets ≥24px.
+**Plans**: TBD (~5 plans)
+
+Plans:
+- [ ] 03-01: `+layout.svelte` shell — skip-link, landmarks, responsive Header/Nav/Footer, token-only primitives
+- [ ] 03-02: mdsvex content pipeline — `posts.ts` glob, `[slug]` prerender via `entries()`, Shiki build-time highlighting, events/nav data
+- [ ] 03-03: Home + About/Mission + Programs & Services pages with real ported content
+- [ ] 03-04: Get Involved/Donate + Events + Contact page scaffolds (form-ready)
+- [ ] 03-05: Blog/News index + post pages; deep-link + heading-order + focus pass across all pages
+
+### Phase 4: Forms & Donate
+**Goal**: Visitors can contact the org and volunteer through fully accessible forms that submit via a static-host-compatible backend with clear success/error states, and can reach the org's existing donation platform via a safe external link-out — no server, no embedded checkout, no committed secrets.
+**Depends on**: Phase 3
+**Requirements**: FORM-01, FORM-02, FORM-03, FORM-04
+**Success Criteria** (what must be TRUE):
+  1. A visitor can submit the contact form and the volunteer/get-involved form and receives a clear success or error confirmation.
+  2. Both forms have associated labels, are keyboard-navigable, and announce errors to assistive tech.
+  3. The donate action is a clearly-labeled external link (`rel="noopener noreferrer"`) to the org's existing platform — never an embedded checkout.
+**Plans**: TBD (~2 plans)
+
+Plans:
+- [ ] 04-01: Accessible Contact + Volunteer forms via Web3Forms (labels, `aria-describedby` errors, focus-managed confirmation, honeypot) — endpoint IDs only, no secrets
+- [ ] 04-02: Donate link-out (`rel="noopener noreferrer"`, URL in config) + privacy note
+
+### Phase 5: Premium 3D Hero
+**Goal**: The Premium home hero renders a performant Threlte 3D showpiece that is lazy-loaded only when Premium AND WebGL AND motion-ok AND not-low-power, shows a static poster first in all other cases, never blocks first paint, and disposes cleanly on navigation. Built last on purpose — Phases 1–4 already deliver a complete, accessible, deployed site, so the hero can never block launch.
+**Depends on**: Phase 2 (theme store gate) and Phase 3 (home page)
+**Requirements**: HERO-01, HERO-02, HERO-03, HERO-04, A11Y-05
+**Success Criteria** (what must be TRUE):
+  1. In Premium mode with WebGL, motion allowed, and adequate power, the home hero renders a performant 3D showpiece.
+  2. In Accessible mode, or on no-WebGL / reduced-motion / low-power devices, a static poster image replaces the 3D, and the hero heading and CTA remain fully present and readable.
+  3. The 3D never blocks first paint (poster shows first; Three.js loads only when the capability gate passes) and disposes cleanly on navigation with no memory growth.
+  4. Reduced-motion visitors get animation and 3D fully disabled, not merely softened.
+**Plans**: TBD (~3 plans)
+
+Plans:
+- [ ] 05-01: `capabilities.ts` (WebGL / reduced-motion / low-power / save-data detection) + per-theme poster images
+- [ ] 05-02: `HeroMount` (poster-first + gated `await import()`) with the real `<h1>`/CTA in the DOM, canvas `aria-hidden`
+- [ ] 05-03: `HeroScene` (Threlte, code-split) + disposal, RAF pause when hidden, DPR clamp ≤2, `webglcontextlost` handling
+
+### Phase 6: Accessible Hardening & Launch Verification
+**Goal**: The accessible theme is independently verified to meet WCAG 2.2 AA+ end-to-end against the deployed build (not assumed), and a published accessibility statement honestly documents the finished implementation, its test cadence, and known issues. Verification is its own phase because conformance is a deliverable, not a side effect.
+**Depends on**: Phases 3, 4, and 5 (all feature phases)
+**Requirements**: A11Y-01, A11Y-06
+**Success Criteria** (what must be TRUE):
+  1. Automated axe scans pass WCAG 2.2 AA on every page in the Accessible theme, corroborated by a manual screen-reader and keyboard walkthrough across both themes.
+  2. A published accessibility statement page states the conformance target, test cadence, an honest known-issues list, and a help contact (Scope-style).
+  3. The deployed site verifies clean end-to-end: correct base path, deep links resolve, `_app` assets return 200, and a branded 404 page renders.
+**Plans**: TBD (~2 plans)
+
+Plans:
+- [ ] 06-01: axe + Lighthouse across both themes, manual SR + keyboard walkthrough, contrast + reduced-motion + no-WebGL checks; fix findings
+- [ ] 06-02: Accessibility statement page + branded 404; final deployed-URL verification checklist
+
+## Progress
+
+**Execution Order:**
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
+
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 1. Foundation & Static Deploy | 0/3 | Not started | - |
+| 2. Design System & Dual Theme | 0/3 | Not started | - |
+| 3. App Shell, Content Pipeline & Pages | 0/5 | Not started | - |
+| 4. Forms & Donate | 0/2 | Not started | - |
+| 5. Premium 3D Hero | 0/3 | Not started | - |
+| 6. Accessible Hardening & Launch Verification | 0/2 | Not started | - |
