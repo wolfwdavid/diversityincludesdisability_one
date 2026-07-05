@@ -58,7 +58,7 @@ Every visitor — regardless of ability, device, or assistive technology — get
 |----------|-----------|---------|
 | SvelteKit + static adapter | Svelte-native, great DX, static export fits GitHub Pages | — Pending |
 | Threlte for the 3D hero | Svelte-idiomatic Three.js wrapper; keeps 3D componentized + lazy | — Pending |
-| Two full themes (not just motion) | Accessible mode as a true peer design, not a stripped fallback | — Pending |
+| Two full themes (not just motion) | Accessible mode as a true peer design, not a stripped fallback | ✓ Validated in Phase 2 — two peer token sets differ across contrast/type/spacing/motion; no-flash toggle, accessible-first default, SR-friendly control (THEME-01..06) |
 | 3D scoped to one hero showpiece | Maximum wow with controllable perf/a11y cost | — Pending |
 | Mirror real DID content | Launchable real site, not a demo | — Pending |
 | Forms via third-party backend (e.g. Formspree) | GitHub Pages has no server; still need working contact/volunteer | — Pending |
@@ -82,4 +82,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-04 after Phase 1 (Foundation & Static Deploy) completion — site live on GitHub Pages*
+*Last updated: 2026-07-05 after Phase 2 (Design System & Dual Theme) completion — two peer themes + no-flash accessible-first toggle, all THEME-01..06 validated*
