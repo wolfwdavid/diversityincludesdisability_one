@@ -3,8 +3,10 @@
 	import '$lib/styles/tokens/base.css';
 	import '$lib/styles/theme-premium.css';
 	import '$lib/styles/theme-accessible.css';
+	import '$lib/styles/app.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import ThemeToggle from '$lib/theme/ThemeToggle.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	let { children } = $props();
 </script>
@@ -13,6 +15,11 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<ThemeToggle />
-
-{@render children()}
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<Header />
+<main id="main-content" tabindex="-1">
+	<div class="container prose">
+		{@render children()}
+	</div>
+</main>
+<Footer />
