@@ -43,9 +43,9 @@
 
 ### Blog Content Pipeline
 
-- [ ] **BLOG-01**: Blog posts are authored as markdown and rendered as static pages
-- [ ] **BLOG-02**: Blog index lists posts with title, date, and summary
-- [ ] **BLOG-03**: Rich/code content is rendered at build time (no runtime highlighter shipped)
+- [x] **BLOG-01**: Blog posts are authored as markdown and rendered as static pages
+- [x] **BLOG-02**: Blog index lists posts with title, date, and summary
+- [x] **BLOG-03**: Rich/code content is rendered at build time (no runtime highlighter shipped)
 
 ### Forms & Donate
 
@@ -105,9 +105,9 @@ Every v1 requirement maps to exactly one phase (no orphans, no duplicates).
 | PAGE-06 | Phase 3 | Pending |
 | PAGE-07 | Phase 3 | Pending |
 | PAGE-08 | Phase 3 | Complete |
-| BLOG-01 | Phase 3 | Pending |
-| BLOG-02 | Phase 3 | Pending |
-| BLOG-03 | Phase 3 | Pending |
+| BLOG-01 | Phase 3 | Complete |
+| BLOG-02 | Phase 3 | Complete |
+| BLOG-03 | Phase 3 | Complete |
 | A11Y-02 | Phase 3 | Complete |
 | A11Y-03 | Phase 3 | Complete |
 | A11Y-04 | Phase 3 | Complete |

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-01-app-shell-landmarks-nav-PLAN.md
-last_updated: "2026-07-05T03:10:44.817Z"
+stopped_at: Completed 03-02-mdsvex-shiki-content-pipeline-PLAN.md
+last_updated: "2026-07-05T03:58:03.085Z"
 progress:
   total_phases: 6
   completed_phases: 2
   total_plans: 11
-  completed_plans: 7
+  completed_plans: 8
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 03 (app-shell-content-pipeline-pages) — EXECUTING
-Plan: 2 of 5
+Plan: 3 of 5
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Plan: 2 of 5
 | Phase 02-design-system-dual-theme P02 | 6 | 2 tasks | 2 files |
 | Phase 02-design-system-dual-theme P03 | 13 | 2 tasks | 2 files |
 | Phase 03 P01 | 34 | 3 tasks | 14 files |
+| Phase 03 P02 | 40 | 3 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -80,6 +81,8 @@ Recent decisions affecting current work:
 - [Phase 02-design-system-dual-theme]: ThemeToggle temporarily mounted at top of +layout.svelte for global presence/testability; Phase 3 (PAGE-08 shell) relocates it into the Header/Nav — component unchanged, only mount moves
 - [Phase 03]: App shell owns all landmarks + skip-link once in +layout; content pages inherit correct semantics (main#main-content[tabindex=-1] so skip link moves focus)
 - [Phase 03]: nav.ts is the single source of truth; every internal href rendered base-prefixed as {base}{item.href}; Header disclosure nav uses aria-expanded/controls + Escape-returns-focus; ThemeToggle relocated into Header unchanged
+- [Phase 03]: Content pipeline: mdsvex + Shiki createHighlighter singleton at build time in svelte.config.js (escapeSvelte + rehype-slug, github-dark) → inert {@html}, zero client highlighter (BLOG-03)
+- [Phase 03]: Blog [slug] uses UNIVERSAL +page.ts (component non-serializable) with prerender=true + entries() from the shared /src/lib/posts/*.md glob; Svelte-5 <Content/> via $derived; frontmatter dates quoted so YAML keeps them YYYY-MM-DD strings
 
 ### Pending Todos
 
@@ -95,6 +98,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T03:10:05.552Z
-Stopped at: Completed 03-01-app-shell-landmarks-nav-PLAN.md
+Last session: 2026-07-05T03:58:03.078Z
+Stopped at: Completed 03-02-mdsvex-shiki-content-pipeline-PLAN.md
 Resume file: None
