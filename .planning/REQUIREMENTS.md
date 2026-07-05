@@ -37,7 +37,7 @@
 - [x] **PAGE-03**: Programs & Services page covering the four real services (trainings, consulting, modeling, speaking)
 - [x] **PAGE-04**: Get Involved / Donate page with volunteer info and a donate link-out
 - [x] **PAGE-05**: Events page listing events (structure ready for real events)
-- [ ] **PAGE-06**: Blog / News index plus individual post pages
+- [x] **PAGE-06**: Blog / News index plus individual post pages
 - [x] **PAGE-07**: Contact page with an accessible contact form
 - [x] **PAGE-08**: Consistent, responsive, accessible navigation (header/nav + footer) across all pages
 
@@ -102,7 +102,7 @@ Every v1 requirement maps to exactly one phase (no orphans, no duplicates).
 | PAGE-03 | Phase 3 | Complete |
 | PAGE-04 | Phase 3 | Complete |
 | PAGE-05 | Phase 3 | Complete |
-| PAGE-06 | Phase 3 | Pending |
+| PAGE-06 | Phase 3 | Complete |
 | PAGE-07 | Phase 3 | Complete |
 | PAGE-08 | Phase 3 | Complete |
 | BLOG-01 | Phase 3 | Complete |

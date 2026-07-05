@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-04-getinvolved-events-contact-PLAN.md
-last_updated: "2026-07-05T05:07:53.457Z"
+stopped_at: Completed 03-05-blog-index-a11y-hardening-PLAN.md — Phase 3 COMPLETE
+last_updated: "2026-07-05T05:24:52.727Z"
 progress:
   total_phases: 6
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
 ---
 
 # Project State
@@ -56,6 +56,7 @@ Plan: 5 of 5
 | Phase 03 P02 | 40 | 3 tasks | 11 files |
 | Phase 03 P03 | 24 | 3 tasks | 4 files |
 | Phase 03 P04 | 40 | 3 tasks | 5 files |
+| Phase 03 P05 | 22 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,8 @@ Recent decisions affecting current work:
 - [Phase 03]: PAGE-04 Donate is a labeled external link-out placeholder (rel=noopener noreferrer, href=# + TODO Phase-4/FORM-04), never an embedded checkout/payment widget
 - [Phase 03]: PAGE-05 Events driven by typed src/lib/data/events.ts; page renders {#if}...{:else} so zero real events is a valid empty-state (sample entries flagged fictional)
 - [Phase 03]: PAGE-07 Contact is an a11y-complete form SCAFFOLD (label/for, aria-describedby error slots, role=alert, mailto fallback, preventDefault-only) with NO action/fetch/backend; Phase 4 adds only the submit wiring
+- [Phase 03]: Blog/News index is a thin posts.ts-driven presentation (title link + date + summary, newest-first, base-prefixed trailing-slash post links); pipeline consumed unchanged per SCOPE FENCE
+- [Phase 03]: Site-wide structural a11y (single h1, ordered headings, landmarks, focus-visibility 2.4.7, >=24px targets) verified green on all 7 real pages with zero page fixes; full WCAG 2.2 AA axe/Lighthouse conformance deferred to Phase 6
 
 ### Pending Todos
 
@@ -104,6 +107,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T05:07:26.641Z
-Stopped at: Completed 03-04-getinvolved-events-contact-PLAN.md
+Last session: 2026-07-05T05:24:24.198Z
+Stopped at: Completed 03-05-blog-index-a11y-hardening-PLAN.md — Phase 3 COMPLETE
 Resume file: None

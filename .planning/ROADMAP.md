@@ -71,7 +71,7 @@ Plans:
 - [x] 03-02-mdsvex-shiki-content-pipeline-PLAN.md — [wave 2] mdsvex+Shiki build-time pipeline in `svelte.config.js`, `posts.ts` glob index, universal `blog/[slug]/+page.ts` + `entries()` prerender + `<Content/>` render, no-shiki-chunk scan, 2 sample posts (BLOG-01/02/03)
 - [x] 03-03-home-about-programs-content-PLAN.md — [wave 2] Home static hero placeholder + CTAs, About with real Eman Rimawi bio + flagged mission, Programs with the four real services (PAGE-01/02/03)
 - [x] 03-04-getinvolved-events-contact-PLAN.md — [wave 2] Get Involved + safe donate link-out, Events data module + empty-state, accessible Contact form scaffold (no backend) (PAGE-04/05/07)
-- [ ] 03-05-blog-index-a11y-hardening-PLAN.md — [wave 3] Blog/News index (posts.ts-driven) + site-wide heading-order/focus/target-size pass + full-suite Phase gate (PAGE-06, A11Y-03/04)
+- [x] 03-05-blog-index-a11y-hardening-PLAN.md — [wave 3] Blog/News index (posts.ts-driven) + site-wide heading-order/focus/target-size pass + full-suite Phase gate (PAGE-06, A11Y-03/04)
 
 ### Phase 4: Forms & Donate
 **Goal**: Visitors can contact the org and volunteer through fully accessible forms that submit via a static-host-compatible backend with clear success/error states, and can reach the org's existing donation platform via a safe external link-out — no server, no embedded checkout, no committed secrets.
