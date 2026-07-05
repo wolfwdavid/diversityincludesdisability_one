@@ -1,6 +1,6 @@
 ---
 title: Our accessibility commitment
-date: 2026-06-01
+date: '2026-06-01'
 summary: What WCAG 2.2 AA+ means for how we design, and how you can hold us to it.
 ---
 

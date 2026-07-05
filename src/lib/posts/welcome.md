@@ -1,6 +1,6 @@
 ---
 title: Welcome to Diversity Includes Disability
-date: 2026-07-04
+date: '2026-07-04'
 summary: Why we build for and by disabled people — and what to expect from this space.
 ---
 
