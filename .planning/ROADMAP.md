@@ -52,7 +52,7 @@ Plans:
 Plans:
 - [x] 02-01-tokens-dual-theme-css-PLAN.md - reset.css + tokens/base.css + theme-premium.css + theme-accessible.css (two complete peer token sets, concrete contrast-verified values) + Phase-2 test harness (Vitest jsdom + local-preview Playwright); THEME-03
 - [x] 02-02-no-flash-init-and-store-PLAN.md - app.html blocking inline theme-init script (namespaced did:theme + reduced-motion/contrast defaulting) + theme.svelte.ts SSR-safe runes store; THEME-02, THEME-04, THEME-05
-- [ ] 02-03-accessible-theme-toggle-PLAN.md - ThemeToggle.svelte (native aria-pressed button, aria-live announcement, focus retained) mounted in +layout.svelte; THEME-01, THEME-06
+- [x] 02-03-accessible-theme-toggle-PLAN.md - ThemeToggle.svelte (native aria-pressed button, aria-live announcement, focus retained) mounted in +layout.svelte; THEME-01, THEME-06
 
 ### Phase 3: App Shell, Content Pipeline & Pages
 **Goal**: The token-driven app shell (landmarks, skip-link, Header/Nav/Footer), the mdsvex markdown content pipeline, and all seven route pages with real DID content are built and deployed — a complete, accessible, navigable site that stands on its own without forms or the 3D hero. Shell/landmarks land before content so semantics aren't retrofitted across seven pages.

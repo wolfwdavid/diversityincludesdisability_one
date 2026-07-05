@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-design-system-dual-theme-02-PLAN.md
-last_updated: "2026-07-05T00:57:31.958Z"
+stopped_at: Completed 02-design-system-dual-theme-03-PLAN.md
+last_updated: "2026-07-05T01:16:01.652Z"
 progress:
   total_phases: 6
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 6
-  completed_plans: 5
+  completed_plans: 6
 ---
 
 # Project State
@@ -51,6 +51,7 @@ Plan: 3 of 3
 | Phase 01-foundation-static-deploy P03 | 20 | 1 tasks | 5 files |
 | Phase 02-design-system-dual-theme P01 | 16 | 3 tasks | 10 files |
 | Phase 02-design-system-dual-theme P02 | 6 | 2 tasks | 2 files |
+| Phase 02-design-system-dual-theme P03 | 13 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,8 @@ Recent decisions affecting current work:
 - [Phase 02-design-system-dual-theme]: Accessible token set is both the :root safe fallback AND an explicit [data-theme='accessible'] peer; motion is a token (Accessible=--dur-0, Premium=--dur-base/slow) so themes differ across contrast/type/space/motion (THEME-03), never a subtracted fallback
 - [Phase 02-design-system-dual-theme]: THEME-05 paint-time defaulting uses prefers-reduced-motion + prefers-contrast: more ONLY; no-WebGL/low-power deferred to the Phase-5 hero MOUNT gate (poster fallback), never the theme (async/expensive/non-portable signals excluded from first paint)
 - [Phase 02-design-system-dual-theme]: No-flash via classic synchronous inline script in app.html (no module/defer/async, inline not external = guaranteed-blocking + base-path-immune); runes store SSR-safe default 'accessible' reconciled from the DOM attribute at hydration
+- [Phase 02-design-system-dual-theme]: ThemeToggle is a native <button aria-pressed> (not role=switch/aria-checked) — best cross-AT support; focus retained for free via a persistent node; one polite aria-live region speaks the theme NAME; 44px target + tokenized focus ring (THEME-01/06)
+- [Phase 02-design-system-dual-theme]: ThemeToggle temporarily mounted at top of +layout.svelte for global presence/testability; Phase 3 (PAGE-08 shell) relocates it into the Header/Nav — component unchanged, only mount moves
 
 ### Pending Todos
 
@@ -89,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T00:57:31.952Z
-Stopped at: Completed 02-design-system-dual-theme-02-PLAN.md
+Last session: 2026-07-05T01:15:44.886Z
+Stopped at: Completed 02-design-system-dual-theme-03-PLAN.md
 Resume file: None
