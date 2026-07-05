@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-03-home-about-programs-content-PLAN.md
-last_updated: "2026-07-05T04:29:11.511Z"
+stopped_at: Completed 03-04-getinvolved-events-contact-PLAN.md
+last_updated: "2026-07-05T05:07:53.457Z"
 progress:
   total_phases: 6
   completed_phases: 2
   total_plans: 11
-  completed_plans: 9
+  completed_plans: 10
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 03 (app-shell-content-pipeline-pages) — EXECUTING
-Plan: 4 of 5
+Plan: 5 of 5
 
 ## Performance Metrics
 
@@ -55,6 +55,7 @@ Plan: 4 of 5
 | Phase 03 P01 | 34 | 3 tasks | 14 files |
 | Phase 03 P02 | 40 | 3 tasks | 11 files |
 | Phase 03 P03 | 24 | 3 tasks | 4 files |
+| Phase 03 P04 | 40 | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,9 @@ Recent decisions affecting current work:
 - [Phase 03]: Content pipeline: mdsvex + Shiki createHighlighter singleton at build time in svelte.config.js (escapeSvelte + rehype-slug, github-dark) → inert {@html}, zero client highlighter (BLOG-03)
 - [Phase 03]: Blog [slug] uses UNIVERSAL +page.ts (component non-serializable) with prerender=true + entries() from the shared /src/lib/posts/*.md glob; Svelte-5 <Content/> via $derived; frontmatter dates quoted so YAML keeps them YYYY-MM-DD strings
 - [Phase 03]: Front-door pages (Home/About/Programs) ship real DID content; mission is an authored placeholder double-flagged for org sign-off; Home hero is the static placeholder for the Phase-5 capability-gated 3D hero
+- [Phase 03]: PAGE-04 Donate is a labeled external link-out placeholder (rel=noopener noreferrer, href=# + TODO Phase-4/FORM-04), never an embedded checkout/payment widget
+- [Phase 03]: PAGE-05 Events driven by typed src/lib/data/events.ts; page renders {#if}...{:else} so zero real events is a valid empty-state (sample entries flagged fictional)
+- [Phase 03]: PAGE-07 Contact is an a11y-complete form SCAFFOLD (label/for, aria-describedby error slots, role=alert, mailto fallback, preventDefault-only) with NO action/fetch/backend; Phase 4 adds only the submit wiring
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T04:28:56.348Z
-Stopped at: Completed 03-03-home-about-programs-content-PLAN.md
+Last session: 2026-07-05T05:07:26.641Z
+Stopped at: Completed 03-04-getinvolved-events-contact-PLAN.md
 Resume file: None

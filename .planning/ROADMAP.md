@@ -70,7 +70,7 @@ Plans:
 - [x] 03-01-app-shell-landmarks-nav-PLAN.md — [wave 1] `+layout.svelte` shell: skip-link → `main#main-content[tabindex=-1]`, header/nav/main/footer landmarks, responsive keyboard-operable Header/Footer (relocated ThemeToggle), token-only `app.css`, five route stubs, shell E2E spec (PAGE-08, A11Y-02/03/04)
 - [x] 03-02-mdsvex-shiki-content-pipeline-PLAN.md — [wave 2] mdsvex+Shiki build-time pipeline in `svelte.config.js`, `posts.ts` glob index, universal `blog/[slug]/+page.ts` + `entries()` prerender + `<Content/>` render, no-shiki-chunk scan, 2 sample posts (BLOG-01/02/03)
 - [x] 03-03-home-about-programs-content-PLAN.md — [wave 2] Home static hero placeholder + CTAs, About with real Eman Rimawi bio + flagged mission, Programs with the four real services (PAGE-01/02/03)
-- [ ] 03-04-getinvolved-events-contact-PLAN.md — [wave 2] Get Involved + safe donate link-out, Events data module + empty-state, accessible Contact form scaffold (no backend) (PAGE-04/05/07)
+- [x] 03-04-getinvolved-events-contact-PLAN.md — [wave 2] Get Involved + safe donate link-out, Events data module + empty-state, accessible Contact form scaffold (no backend) (PAGE-04/05/07)
 - [ ] 03-05-blog-index-a11y-hardening-PLAN.md — [wave 3] Blog/News index (posts.ts-driven) + site-wide heading-order/focus/target-size pass + full-suite Phase gate (PAGE-06, A11Y-03/04)
 
 ### Phase 4: Forms & Donate
