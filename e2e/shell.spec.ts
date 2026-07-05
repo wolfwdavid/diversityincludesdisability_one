@@ -61,6 +61,14 @@ test('nav disclosure: aria-expanded toggles, Escape closes + returns focus (A11Y
 	await expect(toggle).toBeFocused();
 });
 
+test('focused nav links show a visible focus outline (A11Y-04 / WCAG 2.4.7)', async ({ page }) => {
+	await page.goto('./');
+	const link = page.locator('nav[aria-label="Primary"] a').first();
+	await link.focus();
+	const outline = await link.evaluate((el) => getComputedStyle(el).outlineStyle);
+	expect(outline).not.toBe('none');
+});
+
 test('interactive targets are at least 24x24 CSS px (A11Y-04 / WCAG 2.5.8)', async ({ page }) => {
 	await page.goto('./');
 	// Only visible controls are interactive targets at this viewport; the disclosure
