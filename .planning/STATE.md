@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-design-system-dual-theme-03-PLAN.md
-last_updated: "2026-07-05T01:29:55.490Z"
+stopped_at: Completed 03-01-app-shell-landmarks-nav-PLAN.md
+last_updated: "2026-07-05T03:10:44.817Z"
 progress:
   total_phases: 6
   completed_phases: 2
-  total_plans: 6
-  completed_plans: 6
+  total_plans: 11
+  completed_plans: 7
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** Every visitor — regardless of ability, device, or assistive technology — gets a first-class experience of the org's mission. The accessible mode is a peer, not a fallback.
-**Current focus:** Phase 02 — design-system-dual-theme
+**Current focus:** Phase 03 — app-shell-content-pipeline-pages
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (app-shell-content-pipeline-pages) — EXECUTING
+Plan: 2 of 5
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Plan: Not started
 | Phase 02-design-system-dual-theme P01 | 16 | 3 tasks | 10 files |
 | Phase 02-design-system-dual-theme P02 | 6 | 2 tasks | 2 files |
 | Phase 02-design-system-dual-theme P03 | 13 | 2 tasks | 2 files |
+| Phase 03 P01 | 34 | 3 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -77,6 +78,8 @@ Recent decisions affecting current work:
 - [Phase 02-design-system-dual-theme]: No-flash via classic synchronous inline script in app.html (no module/defer/async, inline not external = guaranteed-blocking + base-path-immune); runes store SSR-safe default 'accessible' reconciled from the DOM attribute at hydration
 - [Phase 02-design-system-dual-theme]: ThemeToggle is a native <button aria-pressed> (not role=switch/aria-checked) — best cross-AT support; focus retained for free via a persistent node; one polite aria-live region speaks the theme NAME; 44px target + tokenized focus ring (THEME-01/06)
 - [Phase 02-design-system-dual-theme]: ThemeToggle temporarily mounted at top of +layout.svelte for global presence/testability; Phase 3 (PAGE-08 shell) relocates it into the Header/Nav — component unchanged, only mount moves
+- [Phase 03]: App shell owns all landmarks + skip-link once in +layout; content pages inherit correct semantics (main#main-content[tabindex=-1] so skip link moves focus)
+- [Phase 03]: nav.ts is the single source of truth; every internal href rendered base-prefixed as {base}{item.href}; Header disclosure nav uses aria-expanded/controls + Escape-returns-focus; ThemeToggle relocated into Header unchanged
 
 ### Pending Todos
 
@@ -92,6 +95,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T01:15:44.886Z
-Stopped at: Completed 02-design-system-dual-theme-03-PLAN.md
+Last session: 2026-07-05T03:10:05.552Z
+Stopped at: Completed 03-01-app-shell-landmarks-nav-PLAN.md
 Resume file: None

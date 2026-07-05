@@ -24,9 +24,9 @@
 ### Accessibility
 
 - [ ] **A11Y-01**: Accessible theme meets WCAG 2.2 AA on every page (automated axe scan passes)
-- [ ] **A11Y-02**: A skip-to-content link is present on every page
-- [ ] **A11Y-03**: Correct semantic landmarks and heading order on every page
-- [ ] **A11Y-04**: All interactive elements are keyboard-operable with visible focus (incl. 2.4.11 focus-not-obscured, 2.5.8 target size ≥24px)
+- [x] **A11Y-02**: A skip-to-content link is present on every page
+- [x] **A11Y-03**: Correct semantic landmarks and heading order on every page
+- [x] **A11Y-04**: All interactive elements are keyboard-operable with visible focus (incl. 2.4.11 focus-not-obscured, 2.5.8 target size ≥24px)
 - [ ] **A11Y-05**: Reduced-motion is genuinely honored — animation and 3D are disabled, not merely softened
 - [ ] **A11Y-06**: A published accessibility statement page (Scope-style, with an honest known-issues list)
 
@@ -39,7 +39,7 @@
 - [ ] **PAGE-05**: Events page listing events (structure ready for real events)
 - [ ] **PAGE-06**: Blog / News index plus individual post pages
 - [ ] **PAGE-07**: Contact page with an accessible contact form
-- [ ] **PAGE-08**: Consistent, responsive, accessible navigation (header/nav + footer) across all pages
+- [x] **PAGE-08**: Consistent, responsive, accessible navigation (header/nav + footer) across all pages
 
 ### Blog Content Pipeline
 
@@ -104,13 +104,13 @@ Every v1 requirement maps to exactly one phase (no orphans, no duplicates).
 | PAGE-05 | Phase 3 | Pending |
 | PAGE-06 | Phase 3 | Pending |
 | PAGE-07 | Phase 3 | Pending |
-| PAGE-08 | Phase 3 | Pending |
+| PAGE-08 | Phase 3 | Complete |
 | BLOG-01 | Phase 3 | Pending |
 | BLOG-02 | Phase 3 | Pending |
 | BLOG-03 | Phase 3 | Pending |
-| A11Y-02 | Phase 3 | Pending |
-| A11Y-03 | Phase 3 | Pending |
-| A11Y-04 | Phase 3 | Pending |
+| A11Y-02 | Phase 3 | Complete |
+| A11Y-03 | Phase 3 | Complete |
+| A11Y-04 | Phase 3 | Complete |
 | FORM-01 | Phase 4 | Pending |
 | FORM-02 | Phase 4 | Pending |
 | FORM-03 | Phase 4 | Pending |
