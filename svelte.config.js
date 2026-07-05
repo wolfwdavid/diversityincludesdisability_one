@@ -1,22 +1,42 @@
-// svelte.config.js — Source: https://svelte.dev/docs/kit/adapter-static (verified 2026-07-04)
+// svelte.config.js — adapter-static (Phase 1) + mdsvex/Shiki build-time content pipeline (Phase 3).
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { mdsvex, escapeSvelte } from 'mdsvex';
+import { createHighlighter } from 'shiki';
+import rehypeSlug from 'rehype-slug';
+
+// One highlighter for the whole build (lazy singleton — never per code block).
+let highlighter;
+const codeTheme = 'github-dark';
+
+/** @type {import('mdsvex').MdsvexOptions} */
+const mdsvexOptions = {
+	extensions: ['.md'],
+	highlight: {
+		highlighter: async (code, lang = 'text') => {
+			highlighter ??= await createHighlighter({
+				themes: [codeTheme],
+				langs: ['javascript', 'typescript', 'svelte', 'html', 'css', 'json', 'bash', 'python']
+			});
+			const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: codeTheme }));
+			return `{@html \`${html}\`}`;
+		}
+	},
+	rehypePlugins: [rehypeSlug]
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: vitePreprocess(),
+	extensions: ['.svelte', '.md'],
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	kit: {
 		adapter: adapter({
 			fallback: '404.html', // GitHub Pages serves this for any unmatched path (DEPLOY-03)
 			precompress: false,
-			strict: true // DEFAULT — build FAILS if any route isn't prerendered
+			strict: true // build FAILS if any route isn't prerendered
 		}),
 		paths: {
-			// '' locally so dev/preview work from root; CI sets BASE_PATH=/diversityincludesdisability_one
 			base: process.env.BASE_PATH ?? '',
-			// Absolute (base-prefixed) URLs, NOT relative. Required so the 404.html SPA
-			// fallback loads /_app assets correctly from ANY unmatched depth on Pages (DEPLOY-03),
-			// and so assets resolve under the repo sub-path (DEPLOY-02). Kit 2.x defaults this to true.
 			relative: false
 		}
 	}
