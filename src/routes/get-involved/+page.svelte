@@ -25,7 +25,10 @@
   <h2 id="donate">Donate</h2>
   <p>Support our work directly. Donations open on our external giving platform.</p>
   <!-- TODO(Phase 4/FORM-04): replace href="#" with the real external donation URL. No embedded payment widget. -->
-  <p><a class="button" href="#" rel="noopener noreferrer">Donate (external)</a></p>
+  <p>
+    <!-- svelte-ignore a11y_invalid_attribute -->
+    <a class="button" href="#" rel="noopener noreferrer">Donate (external)</a>
+  </p>
   <p class="disclaimer"><em>Donation link is a placeholder — the giving platform URL is wired in Phase 4.</em></p>
 </section>
 
