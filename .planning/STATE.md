@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-foundation-static-deploy-03-PLAN.md (Phase 1 complete)
-last_updated: "2026-07-04T23:24:03.610Z"
+stopped_at: Completed 02-design-system-dual-theme-01-PLAN.md
+last_updated: "2026-07-05T00:45:42.326Z"
 progress:
   total_phases: 6
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 6
+  completed_plans: 4
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** Every visitor — regardless of ability, device, or assistive technology — gets a first-class experience of the org's mission. The accessible mode is a peer, not a fallback.
-**Current focus:** Phase 01 — foundation-static-deploy
+**Current focus:** Phase 02 — design-system-dual-theme
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
+Phase: 02 (design-system-dual-theme) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Plan: Not started
 | Phase 01-foundation-static-deploy P01 | 14 | 3 tasks | 20 files |
 | Phase 01-foundation-static-deploy P02 | 5 | 2 tasks | 6 files |
 | Phase 01-foundation-static-deploy P03 | 20 | 1 tasks | 5 files |
+| Phase 02-design-system-dual-theme P01 | 16 | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,7 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-static-deploy]: Wave 0 smoke harness (Playwright spec + curl matrix) scaffolded against a swappable BASE_URL but intentionally unrun until 01-03 deploys the live site; action pins kept at RESEARCH defaults (v4/v4/v3/v4) as no WebFetch reconciliation tool was available
 - [Phase 01-foundation-static-deploy]: Branded 404 added in the foundation via src/routes/+error.svelte (DEPLOY-03 'branded' half); Phase 6 (06-02) refines it into the final a11y-hardened 404
 - [Phase 01-foundation-static-deploy]: Live-verify surfaced two latent 01-02 harness bugs (Playwright sub-path baseURL reset to origin; verify-deploy.sh over-asserted client-rendered text on the static SPA 404 shell) — both fixed so the harness is a valid gate
+- [Phase 02-design-system-dual-theme]: Accessible token set is both the :root safe fallback AND an explicit [data-theme='accessible'] peer; motion is a token (Accessible=--dur-0, Premium=--dur-base/slow) so themes differ across contrast/type/space/motion (THEME-03), never a subtracted fallback
 
 ### Pending Todos
 
@@ -84,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04T22:18:12.858Z
-Stopped at: Completed 01-foundation-static-deploy-03-PLAN.md (Phase 1 complete)
+Last session: 2026-07-05T00:45:11.922Z
+Stopped at: Completed 02-design-system-dual-theme-01-PLAN.md
 Resume file: None

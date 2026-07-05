@@ -50,7 +50,7 @@ Plans:
 **Plans**: 3 plans (waves 1 -> 2 -> 3)
 
 Plans:
-- [ ] 02-01-tokens-dual-theme-css-PLAN.md - reset.css + tokens/base.css + theme-premium.css + theme-accessible.css (two complete peer token sets, concrete contrast-verified values) + Phase-2 test harness (Vitest jsdom + local-preview Playwright); THEME-03
+- [x] 02-01-tokens-dual-theme-css-PLAN.md - reset.css + tokens/base.css + theme-premium.css + theme-accessible.css (two complete peer token sets, concrete contrast-verified values) + Phase-2 test harness (Vitest jsdom + local-preview Playwright); THEME-03
 - [ ] 02-02-no-flash-init-and-store-PLAN.md - app.html blocking inline theme-init script (namespaced did:theme + reduced-motion/contrast defaulting) + theme.svelte.ts SSR-safe runes store; THEME-02, THEME-04, THEME-05
 - [ ] 02-03-accessible-theme-toggle-PLAN.md - ThemeToggle.svelte (native aria-pressed button, aria-live announcement, focus retained) mounted in +layout.svelte; THEME-01, THEME-06
 
