@@ -1,0 +1,51 @@
+/* tokens/base.css — primitives (theme-agnostic) + :root default (Accessible) semantics. */
+:root {
+  /* ---- PRIMITIVES ---- */
+  --ink-950: #0f1020; --ink-900: #14110f; --ink-700: #333333;
+  --ink-600: #595959; --ink-500: #6b6b6b;
+  --paper-0: #ffffff; --paper-50: #f6f4f2; --paper-100: #f4f6f8;
+  --blue-300: #7aa2ff; --blue-700: #0b3ad6; --blue-800: #082da0;
+  --surface-dark: #1a1b2e; --border-dark: #3a3c55; --text-dim: #c7c9d9;
+
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-6: 1.5rem; --space-8: 2rem; --space-12: 3rem; --space-16: 4rem;
+
+  --dur-0: 0ms; --dur-fast: 150ms; --dur-base: 250ms; --dur-slow: 450ms;
+  --ease-linear: linear;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  --font-system: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, "Times New Roman", serif;
+
+  /* ---- SEMANTIC DEFAULTS = ACCESSIBLE (safe fallback) ---- */
+  --color-bg: var(--paper-0);
+  --color-surface: var(--paper-100);
+  --color-text: var(--ink-900);
+  --color-text-muted: var(--ink-700);
+  --color-accent: var(--blue-700);
+  --color-accent-hover: var(--blue-800);
+  --color-on-accent: var(--paper-0);
+  --color-border: var(--ink-600);
+  --color-focus: var(--blue-700);
+
+  --font-body: var(--font-system);
+  --font-heading: var(--font-system);
+  --font-size-base: 1.125rem;        /* 18px — larger for readability */
+  --type-scale-ratio: 1.2;
+  --leading: 1.7;
+  --font-weight-body: 400;
+  --font-weight-heading: 700;
+  --letter-spacing-heading: normal;
+  --measure: 60ch;
+
+  --space-section: var(--space-16);  /* generous 4rem */
+  --space-block: var(--space-6);
+  --radius: 4px;
+
+  --motion-duration: var(--dur-0);   /* Accessible: motion OFF by design */
+  --motion-duration-slow: var(--dur-0);
+  --motion-ease: var(--ease-linear);
+  --motion-distance: 0px;
+  --focus-ring-width: 3px;
+}
