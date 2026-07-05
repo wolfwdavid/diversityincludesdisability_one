@@ -43,7 +43,7 @@ Playwright drives THEME-05 deterministically via `page.emulateMedia({ reducedMot
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 02-01-01 | 01 | 1 | (infra) | scaffold | `npx playwright test --config playwright.theme.config.ts -g "peer designs"` | ❌ W0 → created here | ⬜ pending |
+| 02-01-01 | 01 | 1 | (infra) | scaffold | `test -f e2e/theme.spec.ts && grep "environment: 'jsdom'" vite.config.ts && grep webServer playwright.theme.config.ts` | ❌ W0 → created here | ⬜ pending |
 | 02-01-02 | 01 | 1 | THEME-03 | file/CSS | `grep --color-bg/--motion-duration src/lib/styles/tokens/base.css` | ✅ after task | ⬜ pending |
 | 02-01-03 | 01 | 1 | THEME-03 | E2E (computed style) | `npx playwright test --config playwright.theme.config.ts -g "peer designs"` | ✅ (02-01-01) | ⬜ pending |
 | 02-02-01 | 02 | 2 | THEME-04, THEME-05 | E2E | `npx playwright test --config playwright.theme.config.ts -g "no flash\|accessible-first"` | ✅ (02-01-01) | ⬜ pending |

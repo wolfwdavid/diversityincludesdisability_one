@@ -27,7 +27,7 @@ must_haves:
     - from: "src/app.html"
       to: "localStorage['did:theme']"
       via: "reads the namespaced key first, then media-query signals"
-      pattern: "localStorage.getItem\\('did:theme'\\)"
+      pattern: "localStorage.getItem\\(KEY\\)"
     - from: "src/lib/theme/theme.svelte.ts"
       to: "document.documentElement.dataset.theme"
       via: "initial() reconciles from the attribute the inline script set"
@@ -77,6 +77,7 @@ Tokens consumed (from 02-01, already shipped): `:root[data-theme='premium']` and
 - theme.svelte.ts: NO window/document/localStorage at module top level — guard with `browser` from $app/environment, else prerender crashes with "window is not defined". RESEARCH Pitfall 3.
 - SSR/prerender DEFAULT is 'accessible' (safe), reconciled to the real value from the DOM attribute at hydration → no flash on the store either.
 - Current app.html already has <meta name="text-scale"> and the %sveltekit.head% / %sveltekit.body% shell — PRESERVE all of it; only ADD the <script> in <head>.
+- DECISION (log to STATE.md Decisions): THEME-05 paint-time defaulting uses `prefers-reduced-motion` + `prefers-contrast: more` ONLY. no-WebGL / low-power are deliberately EXCLUDED from the theme default (synchronous WebGL probing blocks first paint; Battery API is deprecated; deviceMemory/saveData are Chromium-only) and are instead honored at the Phase-5 hero MOUNT gate (poster fallback), never the theme. No CONTEXT.md authorized this narrowing — recorded explicitly per 02-RESEARCH.md "Signal Detection" so it stays traceable and never reads as a silently-dropped requirement.
 </key_facts>
 </context>
 
@@ -129,10 +130,10 @@ Tokens consumed (from 02-01, already shipped): `:root[data-theme='premium']` and
     Do NOT add `type="module"`, `defer`, or `async`. Do NOT detect WebGL/Battery/deviceMemory/saveData here (async/expensive/non-portable — Phase-5 hero concern, not the theme default).
   </action>
   <verify>
-    <automated>grep -q "localStorage.getItem('did:theme')" src/app.html && grep -q "document.documentElement.dataset.theme" src/app.html && grep -q "prefers-reduced-motion: reduce" src/app.html && grep -q "prefers-contrast: more" src/app.html && ! grep -q 'type="module"' src/app.html && grep -q "%sveltekit.body%" src/app.html</automated>
+    <automated>grep -q "KEY = 'did:theme'" src/app.html && grep -q "localStorage.getItem(KEY)" src/app.html && grep -q "document.documentElement.dataset.theme" src/app.html && grep -q "prefers-reduced-motion: reduce" src/app.html && grep -q "prefers-contrast: more" src/app.html && ! grep -q 'type="module"' src/app.html && grep -q "%sveltekit.body%" src/app.html</automated>
   </verify>
   <acceptance_criteria>
-    - `grep "localStorage.getItem('did:theme')" src/app.html` present (namespaced key, read first)
+    - `grep "KEY = 'did:theme'" src/app.html` present (namespaced key declared) AND `grep "localStorage.getItem(KEY)" src/app.html` present (read via the KEY var — matches the action code exactly)
     - `grep "document.documentElement.dataset.theme = theme" src/app.html` present (attribute set pre-paint)
     - `grep "prefers-reduced-motion: reduce" src/app.html` AND `grep "prefers-contrast: more" src/app.html` present (accessible-first triggers)
     - `grep -E 'type="module"|defer|async>' src/app.html` returns NOTHING on the init script (classic synchronous)
@@ -234,5 +235,5 @@ Tokens consumed (from 02-01, already shipped): `:root[data-theme='premium']` and
 </success_criteria>
 
 <output>
-After completion, create `.planning/phases/02-design-system-dual-theme/02-02-SUMMARY.md` recording: the exact inline-script default-decision algorithm shipped, confirmation the key is `did:theme` in both app.html and theme.svelte.ts, the browser-guard approach, and which test slices are now green (unit + no-flash/accessible-first/persistence), leaving only THEME-01/06 toggle a11y for 02-03.
+After completion, create `.planning/phases/02-design-system-dual-theme/02-02-SUMMARY.md` recording: the exact inline-script default-decision algorithm shipped, confirmation the key is `did:theme` in both app.html and theme.svelte.ts, the browser-guard approach, and which test slices are now green (unit + no-flash/accessible-first/persistence), leaving only THEME-01/06 toggle a11y for 02-03. Also log to STATE.md Decisions the THEME-05 signal-scope decision (reduced-motion/contrast only; WebGL/low-power deferred to the Phase-5 hero gate).
 </output>

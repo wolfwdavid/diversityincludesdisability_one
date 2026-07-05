@@ -215,7 +215,7 @@ SCOPE FENCE: NO inline app.html script, NO theme.svelte.ts store, NO ThemeToggle
       expect(premium.fontSize).not.toBe(accessible.fontSize); // typography differs
       expect(premium.section).not.toBe(accessible.section);   // spacing differs
       expect(premium.motion).not.toBe(accessible.motion);     // motion differs (token, not display:none)
-      expect(accessible.motion).toBe('0ms');                  // Accessible motion off BY DESIGN
+      expect(accessible.motion).toMatch(/0ms|--dur-0/);       // Accessible motion off BY DESIGN (0ms via --dur-0)
     });
 
     // --- THEME-04: no flash (green in 02-02) ---
@@ -259,7 +259,7 @@ SCOPE FENCE: NO inline app.html script, NO theme.svelte.ts store, NO ThemeToggle
     ```
   </action>
   <verify>
-    <automated>npx playwright test --config playwright.theme.config.ts -g "peer designs"</automated>
+    <automated>test -f playwright.theme.config.ts && test -f src/lib/theme/theme.test.ts && test -f e2e/theme.spec.ts && grep -q "environment: 'jsdom'" vite.config.ts && grep -q "webServer" playwright.theme.config.ts && grep -q '"test:theme"' package.json && grep -q "peer designs" e2e/theme.spec.ts</automated>
   </verify>
   <acceptance_criteria>
     - `grep "environment: 'jsdom'" vite.config.ts` present AND `grep "exclude:" vite.config.ts` lists `e2e/**` and `tests/**`
@@ -268,7 +268,7 @@ SCOPE FENCE: NO inline app.html script, NO theme.svelte.ts store, NO ThemeToggle
     - `grep '"test:theme"' package.json` present AND `grep '"test:unit"' package.json` present
     - `test -f src/lib/theme/theme.test.ts` succeeds AND `grep "did:theme" src/lib/theme/theme.test.ts` present
     - `test -f e2e/theme.spec.ts` succeeds AND `grep "peer designs" e2e/theme.spec.ts` present
-    - `npx playwright test --config playwright.theme.config.ts -g "peer designs"` exits 0 (THEME-03 verified once Task 3 lands the CSS; run this task's gate AFTER Task 3)
+    - Scaffold-only gate: this task does NOT run the "peer designs" E2E (the CSS + the +layout import land in Tasks 2–3). Task 3 is the single owner of that assertion.
     - playwright.config.ts and tests/ are unchanged (Phase-1 harness untouched)
   </acceptance_criteria>
   <done>Vitest jsdom test block added to vite.config.ts; jsdom installed; playwright.theme.config.ts with a local build+preview webServer created; test:unit/test:theme scripts added; theme.test.ts unit stubs and e2e/theme.spec.ts full THEME spec created; Phase-1 harness untouched.</done>
@@ -426,9 +426,9 @@ SCOPE FENCE: NO inline app.html script, NO theme.svelte.ts store, NO ThemeToggle
       --space-block: 1.5rem;
       --radius: 4px;
 
-      --motion-duration: 0ms;           /* motion OFF by design (not display:none) */
-      --motion-duration-slow: 0ms;
-      --motion-ease: linear;
+      --motion-duration: var(--dur-0);          /* motion OFF by design (not display:none) */
+      --motion-duration-slow: var(--dur-0);
+      --motion-ease: var(--ease-linear);
       --motion-distance: 0px;
       --focus-ring-width: 3px;          /* thicker, more visible focus */
     }
@@ -462,9 +462,9 @@ SCOPE FENCE: NO inline app.html script, NO theme.svelte.ts store, NO ThemeToggle
       --space-block: 1rem;
       --radius: 12px;                      /* rounder, softer */
 
-      --motion-duration: 250ms;            /* genuine motion */
-      --motion-duration-slow: 450ms;
-      --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+      --motion-duration: var(--dur-base);         /* genuine motion — 250ms via primitive */
+      --motion-duration-slow: var(--dur-slow);    /* 450ms via primitive */
+      --motion-ease: var(--ease-emphasized);
       --motion-distance: 12px;
       --focus-ring-width: 2px;
     }
@@ -504,7 +504,7 @@ SCOPE FENCE: NO inline app.html script, NO theme.svelte.ts store, NO ThemeToggle
     - `grep -- "--color-bg: #0f1020" src/lib/styles/theme-premium.css` present AND `grep -- "--color-bg: #ffffff" src/lib/styles/theme-accessible.css` present (palettes differ)
     - `grep -- "--font-size-base: 1rem" src/lib/styles/theme-premium.css` present AND `grep -- "--font-size-base: 1.125rem" src/lib/styles/theme-accessible.css` present (typography differs)
     - `grep -- "--space-section: 3rem" src/lib/styles/theme-premium.css` present AND `grep -- "--space-section: 4rem" src/lib/styles/theme-accessible.css` present (spacing differs)
-    - `grep -- "--motion-duration: 250ms" src/lib/styles/theme-premium.css` present AND `grep -- "--motion-duration: 0ms" src/lib/styles/theme-accessible.css` present (motion differs, as tokens)
+    - `grep -- "--motion-duration: var(--dur-base)" src/lib/styles/theme-premium.css` present AND `grep -- "--motion-duration: var(--dur-0)" src/lib/styles/theme-accessible.css` present (motion differs, referenced through base primitives — layering honored, so key_links `var(--dur-` matches)
     - `grep -- "--font-heading: var(--font-serif)" src/lib/styles/theme-premium.css` present (distinct heading family)
     - +layout.svelte imports all four CSS files in order reset → base → theme-premium → theme-accessible AND retains `import favicon` and `{@render children()}`
     - `npm run build` exits 0 (static build stays green)
