@@ -60,7 +60,7 @@ Every visitor — regardless of ability, device, or assistive technology — get
 | Threlte for the 3D hero | Svelte-idiomatic Three.js wrapper; keeps 3D componentized + lazy | — Pending |
 | Two full themes (not just motion) | Accessible mode as a true peer design, not a stripped fallback | ✓ Validated in Phase 2 — two peer token sets differ across contrast/type/spacing/motion; no-flash toggle, accessible-first default, SR-friendly control (THEME-01..06) |
 | 3D scoped to one hero showpiece | Maximum wow with controllable perf/a11y cost | — Pending |
-| Mirror real DID content | Launchable real site, not a demo | — Pending |
+| Mirror real DID content | Launchable real site, not a demo | ✓ Validated in Phase 3 — real Eman Rimawi bio + 4 real services ported; mission/donate/contact-backend are flagged placeholders for later phases |
 | Forms via third-party backend (e.g. Formspree) | GitHub Pages has no server; still need working contact/volunteer | — Pending |
 | Donate = link-out | No server-side payments on a static host | — Pending |
 
@@ -82,4 +82,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-05 after Phase 2 (Design System & Dual Theme) completion — two peer themes + no-flash accessible-first toggle, all THEME-01..06 validated*
+*Last updated: 2026-07-05 after Phase 3 (App Shell, Content Pipeline & Pages) completion — accessible 7-page site + mdsvex/Shiki blog, all 14 PAGE/BLOG/A11Y reqs validated; forms (P4) + 3D hero (P5) remain*
