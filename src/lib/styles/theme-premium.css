@@ -1,0 +1,32 @@
+/* theme-premium.css — a COMPLETE peer design: dark, editorial, animated. */
+:root[data-theme='premium'] {
+  --color-bg: #0f1020;
+  --color-surface: #1a1b2e;
+  --color-text: #f6f4f2;            /* ~17:1 on bg */
+  --color-text-muted: #c7c9d9;      /* ~11.9:1 on bg */
+  --color-accent: #7aa2ff;          /* ~7.5:1 on bg */
+  --color-accent-hover: #a9c2ff;
+  --color-on-accent: #0f1020;       /* ~7.5:1 on accent */
+  --color-border: #3a3c55;
+  --color-focus: #7aa2ff;
+
+  --font-body: var(--font-system);
+  --font-heading: var(--font-serif);   /* distinct heading typeface family */
+  --font-size-base: 1rem;              /* 16px — differs from Accessible's 18px */
+  --type-scale-ratio: 1.28;            /* more dramatic scale */
+  --leading: 1.5;
+  --font-weight-body: 400;
+  --font-weight-heading: 600;
+  --letter-spacing-heading: -0.02em;   /* tighter, editorial */
+  --measure: 68ch;
+
+  --space-section: 3rem;               /* tighter than Accessible's 4rem */
+  --space-block: 1rem;
+  --radius: 12px;                      /* rounder, softer */
+
+  --motion-duration: var(--dur-base);         /* genuine motion — 250ms via primitive */
+  --motion-duration-slow: var(--dur-slow);    /* 450ms via primitive */
+  --motion-ease: var(--ease-emphasized);
+  --motion-distance: 12px;
+  --focus-ring-width: 2px;
+}

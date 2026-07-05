@@ -26,7 +26,7 @@ test('peer designs differ across contrast, type, spacing, and motion', async ({ 
 	expect(premium.fontSize).not.toBe(accessible.fontSize); // typography differs
 	expect(premium.section).not.toBe(accessible.section); // spacing differs
 	expect(premium.motion).not.toBe(accessible.motion); // motion differs (token, not display:none)
-	expect(accessible.motion).toMatch(/0ms|--dur-0/); // Accessible motion off BY DESIGN (0ms via --dur-0)
+	expect(accessible.motion).toMatch(/^0(ms|s)?$|--dur-0/); // Accessible motion off BY DESIGN (0 duration; Chromium serializes 0ms as "0s")
 });
 
 // --- THEME-04: no flash (green in 02-02) ---

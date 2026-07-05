@@ -1,0 +1,32 @@
+/* theme-accessible.css — a COMPLETE peer design: light, high-contrast, calm, no motion. */
+:root[data-theme='accessible'] {
+  --color-bg: #ffffff;
+  --color-surface: #f4f6f8;
+  --color-text: #1a1a1a;            /* ~17:1 on bg (AAA) */
+  --color-text-muted: #333333;      /* ~12.6:1 on bg (AAA) */
+  --color-accent: #0b3ad6;          /* ~8.1:1 on bg (AAA) */
+  --color-accent-hover: #082da0;
+  --color-on-accent: #ffffff;       /* ~8.1:1 on accent (AAA) */
+  --color-border: #595959;          /* ~7:1 on bg */
+  --color-focus: #0b3ad6;
+
+  --font-body: var(--font-system);
+  --font-heading: var(--font-system);
+  --font-size-base: 1.125rem;       /* 18px */
+  --type-scale-ratio: 1.2;
+  --leading: 1.7;
+  --font-weight-body: 400;
+  --font-weight-heading: 700;
+  --letter-spacing-heading: normal;
+  --measure: 60ch;
+
+  --space-section: 4rem;
+  --space-block: 1.5rem;
+  --radius: 4px;
+
+  --motion-duration: var(--dur-0);          /* motion OFF by design (not display:none) */
+  --motion-duration-slow: var(--dur-0);
+  --motion-ease: var(--ease-linear);
+  --motion-distance: 0px;
+  --focus-ring-width: 3px;          /* thicker, more visible focus */
+}
