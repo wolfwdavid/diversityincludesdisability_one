@@ -15,10 +15,10 @@
 ### Theme System
 
 - [ ] **THEME-01**: Visitor can toggle between a Premium theme and an Accessible theme from any page
-- [ ] **THEME-02**: The chosen theme persists across pages and across return visits
+- [x] **THEME-02**: The chosen theme persists across pages and across return visits
 - [x] **THEME-03**: The two themes differ across motion, contrast, typography, and spacing (two complete designs, not one with motion removed)
-- [ ] **THEME-04**: No flash of the wrong theme on load (theme applied before first paint)
-- [ ] **THEME-05**: On first visit the default honors `prefers-reduced-motion` / no-WebGL / low-power by loading the Accessible theme
+- [x] **THEME-04**: No flash of the wrong theme on load (theme applied before first paint)
+- [x] **THEME-05**: On first visit the default honors `prefers-reduced-motion` / no-WebGL / low-power by loading the Accessible theme
 - [ ] **THEME-06**: The theme toggle is keyboard-operable, announced to assistive tech, and preserves focus on switch
 
 ### Accessibility
@@ -92,10 +92,10 @@ Every v1 requirement maps to exactly one phase (no orphans, no duplicates).
 | DEPLOY-03 | Phase 1 | Complete |
 | DEPLOY-04 | Phase 1 | Complete |
 | THEME-01 | Phase 2 | Pending |
-| THEME-02 | Phase 2 | Pending |
+| THEME-02 | Phase 2 | Complete |
 | THEME-03 | Phase 2 | Complete |
-| THEME-04 | Phase 2 | Pending |
-| THEME-05 | Phase 2 | Pending |
+| THEME-04 | Phase 2 | Complete |
+| THEME-05 | Phase 2 | Complete |
 | THEME-06 | Phase 2 | Pending |
 | PAGE-01 | Phase 3 | Pending |
 | PAGE-02 | Phase 3 | Pending |

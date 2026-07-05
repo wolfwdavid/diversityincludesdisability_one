@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-design-system-dual-theme-01-PLAN.md
-last_updated: "2026-07-05T00:45:42.326Z"
+stopped_at: Completed 02-design-system-dual-theme-02-PLAN.md
+last_updated: "2026-07-05T00:57:31.958Z"
 progress:
   total_phases: 6
   completed_phases: 1
   total_plans: 6
-  completed_plans: 4
+  completed_plans: 5
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 02 (design-system-dual-theme) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -50,6 +50,7 @@ Plan: 2 of 3
 | Phase 01-foundation-static-deploy P02 | 5 | 2 tasks | 6 files |
 | Phase 01-foundation-static-deploy P03 | 20 | 1 tasks | 5 files |
 | Phase 02-design-system-dual-theme P01 | 16 | 3 tasks | 10 files |
+| Phase 02-design-system-dual-theme P02 | 6 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -71,6 +72,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-static-deploy]: Branded 404 added in the foundation via src/routes/+error.svelte (DEPLOY-03 'branded' half); Phase 6 (06-02) refines it into the final a11y-hardened 404
 - [Phase 01-foundation-static-deploy]: Live-verify surfaced two latent 01-02 harness bugs (Playwright sub-path baseURL reset to origin; verify-deploy.sh over-asserted client-rendered text on the static SPA 404 shell) — both fixed so the harness is a valid gate
 - [Phase 02-design-system-dual-theme]: Accessible token set is both the :root safe fallback AND an explicit [data-theme='accessible'] peer; motion is a token (Accessible=--dur-0, Premium=--dur-base/slow) so themes differ across contrast/type/space/motion (THEME-03), never a subtracted fallback
+- [Phase 02-design-system-dual-theme]: THEME-05 paint-time defaulting uses prefers-reduced-motion + prefers-contrast: more ONLY; no-WebGL/low-power deferred to the Phase-5 hero MOUNT gate (poster fallback), never the theme (async/expensive/non-portable signals excluded from first paint)
+- [Phase 02-design-system-dual-theme]: No-flash via classic synchronous inline script in app.html (no module/defer/async, inline not external = guaranteed-blocking + base-path-immune); runes store SSR-safe default 'accessible' reconciled from the DOM attribute at hydration
 
 ### Pending Todos
 
@@ -86,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T00:45:11.922Z
-Stopped at: Completed 02-design-system-dual-theme-01-PLAN.md
+Last session: 2026-07-05T00:57:31.952Z
+Stopped at: Completed 02-design-system-dual-theme-02-PLAN.md
 Resume file: None
