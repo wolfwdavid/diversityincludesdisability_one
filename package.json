@@ -13,7 +13,9 @@
 		"smoke": "playwright test",
 		"verify:deploy": "bash scripts/verify-deploy.sh",
 		"test:unit": "vitest run src/lib/theme",
-		"test:theme": "playwright test --config playwright.theme.config.ts"
+		"test:theme": "playwright test --config playwright.theme.config.ts",
+		"test:e2e": "playwright test --config playwright.theme.config.ts",
+		"test:base": "playwright test --config playwright.content.config.ts"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.61.1",

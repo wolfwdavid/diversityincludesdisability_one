@@ -4,6 +4,7 @@ import { defineConfig, devices } from '@playwright/test';
 // Kept separate from playwright.config.ts (Phase-1 live smoke harness).
 export default defineConfig({
 	testDir: 'e2e',
+	testIgnore: '**/*.base.spec.ts',
 	timeout: 30_000,
 	use: { baseURL: 'http://localhost:4173/' },
 	reporter: 'list',
