@@ -47,12 +47,12 @@ Plans:
   3. No flash of the wrong theme occurs on load — the correct theme is applied before first paint.
   4. A first-time visitor whose signals indicate reduced-motion, no-WebGL, or low-power lands on the Accessible theme by default.
   5. The theme toggle is fully keyboard-operable, announces its state to assistive tech, and preserves focus after switching.
-**Plans**: TBD (~3 plans)
+**Plans**: 3 plans (waves 1 -> 2 -> 3)
 
 Plans:
-- [ ] 02-01: `reset.css` + `tokens/base.css` + `theme-premium.css` + `theme-accessible.css` (both complete peers)
-- [ ] 02-02: `app.html` no-flash inline script (localStorage + media queries, defaults assistive users to Accessible) + `theme.svelte.ts` rune store
-- [ ] 02-03: Accessible `ThemeToggle` (native button, `aria-live` announcement, focus retained, persisted)
+- [ ] 02-01-tokens-dual-theme-css-PLAN.md - reset.css + tokens/base.css + theme-premium.css + theme-accessible.css (two complete peer token sets, concrete contrast-verified values) + Phase-2 test harness (Vitest jsdom + local-preview Playwright); THEME-03
+- [ ] 02-02-no-flash-init-and-store-PLAN.md - app.html blocking inline theme-init script (namespaced did:theme + reduced-motion/contrast defaulting) + theme.svelte.ts SSR-safe runes store; THEME-02, THEME-04, THEME-05
+- [ ] 02-03-accessible-theme-toggle-PLAN.md - ThemeToggle.svelte (native aria-pressed button, aria-live announcement, focus retained) mounted in +layout.svelte; THEME-01, THEME-06
 
 ### Phase 3: App Shell, Content Pipeline & Pages
 **Goal**: The token-driven app shell (landmarks, skip-link, Header/Nav/Footer), the mdsvex markdown content pipeline, and all seven route pages with real DID content are built and deployed — a complete, accessible, navigable site that stands on its own without forms or the 3D hero. Shell/landmarks land before content so semantics aren't retrofitted across seven pages.
@@ -125,7 +125,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Static Deploy | 3/3 | Complete | 2026-07-04 |
-| 2. Design System & Dual Theme | 0/3 | Not started | - |
+| 2. Design System & Dual Theme | 0/3 | Planned | - |
 | 3. App Shell, Content Pipeline & Pages | 0/5 | Not started | - |
 | 4. Forms & Donate | 0/2 | Not started | - |
 | 5. Premium 3D Hero | 0/3 | Not started | - |
