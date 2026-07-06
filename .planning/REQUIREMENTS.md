@@ -52,7 +52,7 @@
 - [x] **FORM-01**: Contact form submits via a static-host-compatible backend (e.g. Web3Forms) with clear success/error states
 - [x] **FORM-02**: Volunteer / get-involved form submits and confirms
 - [x] **FORM-03**: Forms are fully accessible (associated labels, errors announced, keyboard-navigable)
-- [ ] **FORM-04**: Donate is a clearly-labeled external link-out (`rel="noopener"`), never an embedded checkout
+- [x] **FORM-04**: Donate is a clearly-labeled external link-out (`rel="noopener"`), never an embedded checkout
 
 ### Premium 3D Hero
 
@@ -114,7 +114,7 @@ Every v1 requirement maps to exactly one phase (no orphans, no duplicates).
 | FORM-01 | Phase 4 | Complete |
 | FORM-02 | Phase 4 | Complete |
 | FORM-03 | Phase 4 | Complete |
-| FORM-04 | Phase 4 | Pending |
+| FORM-04 | Phase 4 | Complete |
 | HERO-01 | Phase 5 | Pending |
 | HERO-02 | Phase 5 | Pending |
 | HERO-03 | Phase 5 | Pending |

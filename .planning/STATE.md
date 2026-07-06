@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-01-accessible-forms-web3forms-PLAN.md
-last_updated: "2026-07-06T10:31:34.633Z"
+stopped_at: Completed 04-02-donate-linkout-secret-scan-PLAN.md (phase 04 complete)
+last_updated: "2026-07-06T11:43:13.885Z"
 progress:
   total_phases: 6
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 13
-  completed_plans: 12
+  completed_plans: 13
 ---
 
 # Project State
@@ -58,6 +58,7 @@ Plan: 2 of 2
 | Phase 03 P04 | 40 | 3 tasks | 5 files |
 | Phase 03 P05 | 22 | 2 tasks | 4 files |
 | Phase 04 P01 | 165 | 3 tasks | 8 files |
+| Phase 04-forms-donate P02 | 80 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,8 @@ Recent decisions affecting current work:
 - [Phase 03]: Blog/News index is a thin posts.ts-driven presentation (title link + date + summary, newest-first, base-prefixed trailing-slash post links); pipeline consumed unchanged per SCOPE FENCE
 - [Phase 03]: Site-wide structural a11y (single h1, ordered headings, landmarks, focus-visibility 2.4.7, >=24px targets) verified green on all 7 real pages with zero page fixes; full WCAG 2.2 AA axe/Lighthouse conformance deferred to Phase 6
 - [Phase 04]: Forms use client-side Web3Forms (public key) via one shared submit+validation+FormStatus engine; config.ts is the single swappable source; honeypot-only (no CAPTCHA); refined scaffold to one form-level focus-managed status region + focus-to-first-invalid
+- [Phase 04-forms-donate]: Donate is a pure external link-out (rel=noopener noreferrer + target=_blank + sr-only new-tab cue + privacy note), config-driven from config.ts, never an embedded checkout — E2E asserts zero iframes
+- [Phase 04-forms-donate]: Secret-hygiene scan (test:no-secret) walks BOTH src/ and build/ for UUID-shaped keys and asserts the committed placeholder + TODO + rel=noopener survive
 
 ### Pending Todos
 
@@ -109,6 +112,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-06T10:31:06.685Z
-Stopped at: Completed 04-01-accessible-forms-web3forms-PLAN.md
+Last session: 2026-07-06T11:43:13.873Z
+Stopped at: Completed 04-02-donate-linkout-secret-scan-PLAN.md (phase 04 complete)
 Resume file: None
