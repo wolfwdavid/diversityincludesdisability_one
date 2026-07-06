@@ -18,7 +18,7 @@ must_haves:
   truths:
     - "The capability gate module exports reactive reduced-motion, synchronous WebGL detection, and synchronous low-power detection"
     - "A build-grep boundary script exists, is wired as npm run test:no-three, and fails loudly (RED) while no premium chunk is split"
-    - "The always-loaded stylesheet owns .hero-scene positioning + the 800ms crossfade so no scene component needs a scoped style block"
+    - "The always-loaded stylesheet owns .hero-scene positioning + the 800ms crossfade (D-17) + the scroll-out fade selector (.is-ready.is-onscreen, D-07) so no scene component needs a scoped style block"
     - "Three Playwright specs for the hero capability branches are authored, type-clean, and listable"
   artifacts:
     - path: "src/lib/a11y/prefers.svelte.ts"
@@ -29,7 +29,7 @@ must_haves:
       provides: "content-based bundle-split proof (premium chunk exists AND home entry references none)"
       contains: "@threlte|WebGLRenderer|three\\.module"
     - path: "src/lib/styles/app.css"
-      provides: ".hero-scene positioning + 800ms opacity crossfade base rules"
+      provides: ".hero-scene positioning + 800ms opacity crossfade (D-17) + scroll-out fade selector (.is-ready.is-onscreen, D-07)"
       contains: ".hero-scene"
     - path: "e2e/premium-hero.spec.ts"
       provides: "capability-branch specs (accessible no-canvas-no-poster, reduced-motion poster-no-canvas, premium canvas-mounts-decorative)"
@@ -46,7 +46,7 @@ must_haves:
 ---
 
 <objective>
-Lay the three-free foundation for the Premium 3D hero: install the Threlte/Three stack, create the capability gate (reduced-motion + WebGL + low-power), copy the build-grep boundary proof from sibling `_four` and wire it as an npm script, add the always-loaded `.hero-scene` positioning + 800ms crossfade CSS, and author the three Playwright capability-branch specs as the RED drive-green target for Plans 05-02/05-03.
+Lay the three-free foundation for the Premium 3D hero: install the Threlte/Three stack, create the capability gate (reduced-motion + WebGL + low-power), copy the build-grep boundary proof from sibling `_four` and wire it as an npm script, add the always-loaded `.hero-scene` positioning + 800ms crossfade + D-07 scroll-fade CSS, and author the three Playwright capability-branch specs as the RED drive-green target for Plans 05-02/05-03.
 
 Purpose: Nyquist Wave 0 for this phase — every downstream task verifies against gates that MUST exist first. The capability gate and the boundary script are the load-bearing HERO-02/HERO-04/A11Y-05 machinery; the scene is useless without them.
 Output: Installed deps, `src/lib/a11y/prefers.svelte.ts`, `scripts/check-3d-boundary.mjs` + `test:no-three`, `.hero-scene` CSS, three authored e2e specs (RED).
@@ -134,18 +134,18 @@ Existing npm scripts already present: test:no-shiki, test:no-secret, test:e2e (p
 </task>
 
 <task type="auto">
-  <name>Task 2: Copy the boundary proof + wire test:no-three + add .hero-scene crossfade CSS</name>
+  <name>Task 2: Copy the boundary proof + wire test:no-three + add .hero-scene crossfade + scroll-fade CSS</name>
   <read_first>
     - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_four\scripts\check-3d-boundary.mjs (copy VERBATIM — same adapter-static, same build/index.html entry, same build/_app/immutable layout)
     - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_one\scripts\assert-no-shiki-chunk.mjs (the existing static-scan npm-script shape to mirror)
     - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_one\src\lib\styles\app.css (you append to this; it is the always-loaded home stylesheet)
-    - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_one\.planning\phases\05-premium-3d-hero\05-RESEARCH.md (§Lazy-Import Boundary — why .hero-scene positioning MUST live in an always-loaded stylesheet, and the 800ms crossfade D-17)
+    - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_one\.planning\phases\05-premium-3d-hero\05-RESEARCH.md (§Lazy-Import Boundary — why .hero-scene positioning MUST live in an always-loaded stylesheet, and the 800ms crossfade D-17; §Motion D-07 — the scroll-out fade toggled by .is-onscreen)
   </read_first>
   <files>scripts/check-3d-boundary.mjs, package.json, src/lib/styles/app.css</files>
   <action>
     1. Copy `_four`'s `scripts/check-3d-boundary.mjs` verbatim to `scripts/check-3d-boundary.mjs`. It scans `build/_app/immutable` for chunks whose CONTENT matches `/@threlte|WebGLRenderer|three\.module/`, asserts >=1 exists (premium chunk split), then parses `build/index.html` (the prerendered Accessible/Home entry) and asserts none of its referenced `_app/immutable/*.js` chunks is a premium chunk. No edits needed — it is repo-layout-agnostic.
     2. Add to `package.json` scripts, next to `test:no-shiki`: `"test:no-three": "node scripts/check-3d-boundary.mjs"`.
-    3. Append to `src/lib/styles/app.css` the always-loaded `.hero-scene` rules (owning positioning + the D-17 800ms crossfade so HeroScene/SceneCanvas can carry NO scoped `<style>`):
+    3. Append to `src/lib/styles/app.css` the always-loaded `.hero-scene` rules (owning positioning + the D-17 800ms crossfade AND the D-07 scroll fade so HeroScene/SceneCanvas can carry NO scoped `<style>`). Note the visible selector is `.is-ready.is-onscreen` — the wrapper is opaque ONLY once the first frame has painted (is-ready, D-17) AND the hero is on-screen (is-onscreen, D-07); scrolling the hero out removes is-onscreen → gentle fade to 0 while the RAF loop is paused; scrolling back restores both:
        ```css
        /* Premium 3D hero background layer. Positioning lives HERE (always-loaded) so the scene
           components need no scoped <style> — that is the four-level CSS-leak fix (see 05-RESEARCH). */
@@ -153,9 +153,11 @@ Existing npm scripts already present: test:no-shiki, test:no-secret, test:e2e (p
          position: absolute; inset: 0; z-index: 1;
          pointer-events: none;                 /* decorative; never captures input */
          opacity: 0;                           /* poster shows through until first frame */
-         transition: opacity 800ms var(--motion-ease);   /* D-17 slow crossfade */
+         transition: opacity 800ms var(--motion-ease);   /* D-17 crossfade AND D-07 scroll fade */
        }
-       .hero-scene.is-ready { opacity: 1; }    /* toggled by HeroScene on sceneReady */
+       /* Visible only once the first frame painted (is-ready, D-17) AND the hero is on-screen
+          (is-onscreen, D-07). HeroScene toggles both classes; Scene bubbles onscreen up. */
+       .hero-scene.is-ready.is-onscreen { opacity: 1; }
        @media (prefers-reduced-motion: reduce) { .hero-scene { transition: none; } }
        ```
     4. Run `npm run build` then `npm run test:no-three`. It is EXPECTED to exit 1 with `FAIL: no three/@threlte chunk found` — that is the correct RED baseline (no scene imports three yet; Plan 05-02 drives it green). Confirm the message, do not "fix" it.
@@ -167,10 +169,11 @@ Existing npm scripts already present: test:no-shiki, test:no-secret, test:e2e (p
     - `scripts/check-3d-boundary.mjs` exists and `grep -c "@threlte|WebGLRenderer|three\\.module" scripts/check-3d-boundary.mjs` returns >=1
     - `grep -c "\"test:no-three\": \"node scripts/check-3d-boundary.mjs\"" package.json` returns 1
     - `grep -c "\.hero-scene" src/lib/styles/app.css` returns >=1 AND `grep -c "transition: opacity 800ms" src/lib/styles/app.css` returns 1
+    - `grep -c "\.hero-scene.is-ready.is-onscreen" src/lib/styles/app.css` returns 1 (D-07 scroll-fade selector present — the always-loaded home of the gentle fade)
     - `node scripts/check-3d-boundary.mjs` exits non-zero AND prints `no three/@threlte chunk found` (the intended RED baseline before the scene exists)
     - `npm run build` exits 0 (site still builds static)
   </acceptance_criteria>
-  <done>Boundary proof copied + wired as test:no-three (RED as expected); app.css owns .hero-scene positioning + the 800ms crossfade; build still green.</done>
+  <done>Boundary proof copied + wired as test:no-three (RED as expected); app.css owns .hero-scene positioning + the 800ms crossfade + the D-07 scroll-fade selector (.is-ready.is-onscreen); build still green.</done>
 </task>
 
 <task type="auto">
@@ -179,7 +182,7 @@ Existing npm scripts already present: test:no-shiki, test:no-secret, test:e2e (p
     - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_four\tests\premium-3d.spec.ts (the proven spec set — adapt store key + REMOVE axe)
     - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_one\playwright.theme.config.ts (testDir 'e2e', baseURL http://localhost:4173/, reuseExistingServer)
     - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_one\e2e\theme.spec.ts (existing local-preview spec conventions in THIS repo)
-    - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_one\.planning\phases\05-premium-3d-hero\05-RESEARCH.md (§Validation Architecture — the exact test blueprints + the did:theme / no-data-hydrated / no-axe deltas)
+    - C:\Users\Mkaru\Documents\Hello_World\hugginface_profile\Websites\diversityincludesdisability_one\.planning\phases\05-premium-3d-hero\05-RESEARCH.md (§Validation Architecture — the exact test blueprints + the did:theme / no-data-hydrated / no-axe deltas; §Motion D-07 — the scroll-fade assertion)
   </read_first>
   <files>e2e/premium-hero.spec.ts, e2e/premium-bundle.spec.ts, e2e/premium-dispose.spec.ts</files>
   <action>
@@ -194,11 +197,12 @@ Existing npm scripts already present: test:no-shiki, test:no-secret, test:e2e (p
       - "accessible downloads zero three chunks" → seed 'accessible', goto with `waitUntil: 'networkidle'`; expect `canvas` count 0; expect no captured `.js` body matches `/@threlte|THREE\.WebGLRenderer/`.
       - "premium+motion downloads a three chunk and mounts a canvas" → seed 'premium', motion no-preference; expect `canvas` visible; `expect.poll(() => bodies.some((b) => /@threlte|THREE\.WebGLRenderer/.test(b)), { timeout: 5_000 }).toBe(true)`.
 
-    `e2e/premium-dispose.spec.ts` (HERO-04 leak + context loss):
+    `e2e/premium-dispose.spec.ts` (HERO-04 leak + context loss + D-07 scroll fade):
       - "nav Home↔About ×15 disposes cleanly, no WebGL context console errors" → seed 'premium', motion no-preference; listen on `console` for `/too many active webgl|context lost/i`; loop 15×: expect canvas visible, click About link, expect URL `/about/?$`, expect canvas count 0, `page.goBack()`; expect zero collected errors.
       - "forced context loss → poster fallback, no crash, h1 intact" → seed 'premium', motion no-preference; expect canvas visible; `page.evaluate()` to `getExtension('WEBGL_lose_context')?.loseContext()`; expect `.hero picture, .hero img` visible; expect `h1` visible.
+      - "D-07: scrolling the hero out of view fades + pauses the scene" → seed 'premium', motion no-preference; expect `canvas` visible and `.hero-scene` to have class matching `/is-onscreen/`; scroll the hero fully out of view (`page.mouse.wheel(0, 2000)`, or scroll a lower section/footer into view); `await expect(page.locator('.hero-scene')).not.toHaveClass(/is-onscreen/)` (gentle fade + RAF pause, D-07); scroll back to top (`page.mouse.wheel(0, -2000)`); expect `.hero-scene` to regain `is-onscreen`. NOTE: this asserts BOTH halves of D-07 — the fade class, not just the RAF pause.
 
-    These specs reference selectors (`canvas`, `.hero-scene`, `.hero picture`) that do not exist yet — they are the RED drive-green target for 05-02/05-03. Wave-1 acceptance is ONLY that they are authored, type/lint-clean, and listable.
+    These specs reference selectors (`canvas`, `.hero-scene`, `.hero picture`) and classes (`is-onscreen`) that do not exist yet — they are the RED drive-green target for 05-02/05-03. Wave-1 acceptance is ONLY that they are authored, type/lint-clean, and listable.
   </action>
   <verify>
     <automated>npx playwright test --config playwright.theme.config.ts --list e2e/premium-hero.spec.ts e2e/premium-bundle.spec.ts e2e/premium-dispose.spec.ts</automated>
@@ -209,8 +213,9 @@ Existing npm scripts already present: test:no-shiki, test:no-secret, test:e2e (p
     - `grep -rc "axe\|@axe-core\|data-hydrated" e2e/premium-*.spec.ts` returns 0 across all three (no axe, no hydration-flag wait)
     - `grep -c "reducedMotion" e2e/premium-hero.spec.ts` returns >=2 (branch determinism pinned)
     - `grep -c "picture, .hero img\|.hero picture" e2e/premium-hero.spec.ts` returns >=2 (poster/no-poster branches present)
+    - `grep -c "is-onscreen" e2e/premium-dispose.spec.ts` returns >=1 (D-07 scroll-fade assertion authored — the gentle-fade half of D-07)
   </acceptance_criteria>
-  <done>Three capability-branch specs authored (did:theme key, no axe, no data-hydrated wait, pinned reducedMotion), type-clean and listable — the RED target for the scene and poster plans.</done>
+  <done>Three capability-branch specs authored (did:theme key, no axe, no data-hydrated wait, pinned reducedMotion, D-07 scroll-fade assertion), type-clean and listable — the RED target for the scene and poster plans.</done>
 </task>
 
 </tasks>
@@ -220,13 +225,15 @@ Existing npm scripts already present: test:no-shiki, test:no-secret, test:e2e (p
 - `npm run build` exits 0; `node scripts/check-3d-boundary.mjs` exits 1 with "no three/@threlte chunk found" (intended RED).
 - `npx svelte-check` clean.
 - `npx playwright test --config playwright.theme.config.ts --list e2e/premium-*.spec.ts` lists all branch specs.
-- `src/lib/a11y/prefers.svelte.ts` imports only `$app/environment`; `src/lib/styles/app.css` contains `.hero-scene` + `transition: opacity 800ms`.
+- `src/lib/a11y/prefers.svelte.ts` imports only `$app/environment`; `src/lib/styles/app.css` contains `.hero-scene` + `transition: opacity 800ms` + `.hero-scene.is-ready.is-onscreen`.
 </verification>
 
 <success_criteria>
-Threlte/Three installed (npm, pinned); capability gate (reduced-motion + WebGL + notLowPower) three-free and type-clean; boundary proof wired as `test:no-three` at its RED baseline; `.hero-scene` crossfade CSS in the always-loaded stylesheet; three capability-branch specs authored and listable — Wave 0 complete, downstream plans have their gates.
+Threlte/Three installed (npm, pinned); capability gate (reduced-motion + WebGL + notLowPower) three-free and type-clean; boundary proof wired as `test:no-three` at its RED baseline; `.hero-scene` crossfade + D-07 scroll-fade CSS in the always-loaded stylesheet; three capability-branch specs authored and listable (incl. the D-07 fade assertion) — Wave 0 complete, downstream plans have their gates.
 </success_criteria>
 
 <output>
 After completion, create `.planning/phases/05-premium-3d-hero/05-01-SUMMARY.md`.
 </output>
+</content>
+</invoke>
