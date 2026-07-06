@@ -96,12 +96,12 @@ Plans:
   2. In Accessible mode, or on no-WebGL / reduced-motion / low-power devices, a static poster image replaces the 3D, and the hero heading and CTA remain fully present and readable.
   3. The 3D never blocks first paint (poster shows first; Three.js loads only when the capability gate passes) and disposes cleanly on navigation with no memory growth.
   4. Reduced-motion visitors get animation and 3D fully disabled, not merely softened.
-**Plans**: TBD (~3 plans)
+**Plans**: 3 plans (waves 1 → 2 → 3)
 
 Plans:
-- [ ] 05-01: `capabilities.ts` (WebGL / reduced-motion / low-power / save-data detection) + per-theme poster images
-- [ ] 05-02: `HeroMount` (poster-first + gated `await import()`) with the real `<h1>`/CTA in the DOM, canvas `aria-hidden`
-- [ ] 05-03: `HeroScene` (Threlte, code-split) + disposal, RAF pause when hidden, DPR clamp ≤2, `webglcontextlost` handling
+- [ ] 05-01-foundation-capability-gate-harness-PLAN.md — [wave 1] Install three@0.185.1/@threlte/core@8.5.16 (npm); `src/lib/a11y/prefers.svelte.ts` (reduced-motion + `webglSupported()` + NEW `notLowPower()`); copy `check-3d-boundary.mjs` + wire `test:no-three` (RED baseline); `.hero-scene` + 800ms crossfade CSS; author 3 capability-branch e2e specs `did:theme`/no-axe/no-data-hydrated (HERO-02, HERO-04, A11Y-05)
+- [ ] 05-02-living-constellation-scene-split-boundary-PLAN.md — [wave 2] Four-level lazy boundary (three-free `PremiumHero` gate → `HeroScene` → `SceneCanvas` sole `<Canvas dpr={[1,2]}>`); periwinkle constellation `scene/*` (40/20 instanced white-core Orbs, `LineSegments` proximity Connections, monochrome Lights, drift+breathe+parallax, `onDestroy` disposal + RAF pause); wire full-bleed overlay + scrim + 85svh into `+page.svelte`; `test:no-three` GREEN (HERO-01, HERO-02, HERO-04)
+- [ ] 05-03-poster-crossfade-fallback-gate-PLAN.md — [wave 3] Capture the live scene (Playwright + sharp) → commit `static/hero/constellation-poster.{avif,webp,jpg}`; Premium-only base-prefixed `<picture>` beneath the 800ms-crossfade canvas (Accessible NO image, D-15); drive all fallback specs GREEN; human-verify poster aesthetic + AA over worst-case orb (HERO-03, A11Y-05)
 
 ### Phase 6: Accessible Hardening & Launch Verification
 **Goal**: The accessible theme is independently verified to meet WCAG 2.2 AA+ end-to-end against the deployed build (not assumed), and a published accessibility statement honestly documents the finished implementation, its test cadence, and known issues. Verification is its own phase because conformance is a deliverable, not a side effect.
@@ -128,5 +128,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 2. Design System & Dual Theme | 0/3 | Planned | - |
 | 3. App Shell, Content Pipeline & Pages | 0/5 | Planned | - |
 | 4. Forms & Donate | 0/2 | Planned | - |
-| 5. Premium 3D Hero | 0/3 | Not started | - |
+| 5. Premium 3D Hero | 0/3 | Planned | - |
 | 6. Accessible Hardening & Launch Verification | 0/2 | Not started | - |
