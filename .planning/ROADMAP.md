@@ -84,7 +84,7 @@ Plans:
 **Plans**: 2 plans (waves 1 -> 2)
 
 Plans:
-- [ ] 04-01-accessible-forms-web3forms-PLAN.md — [wave 1] Shared `submitToWeb3Forms()` + pure validation util (+unit test) + focus-managed `FormStatus`; wire contact form (drop per-field role=alert, add aria-invalid + one form-level status region, honeypot `botcheck`); volunteer form section on /get-involved; route-mocked E2E (FORM-01/02/03)
+- [x] 04-01-accessible-forms-web3forms-PLAN.md — [wave 1] Shared `submitToWeb3Forms()` + pure validation util (+unit test) + focus-managed `FormStatus`; wire contact form (drop per-field role=alert, add aria-invalid + one form-level status region, honeypot `botcheck`); volunteer form section on /get-involved; route-mocked E2E (FORM-01/02/03)
 - [ ] 04-02-donate-linkout-secret-scan-PLAN.md — [wave 2] Config-driven external donate link-out (`rel="noopener noreferrer"` + new-tab cue + privacy note, reads `DONATE_URL` from `config.ts`) + `scripts/assert-no-secret.mjs` static scan wired as `test:no-secret` (FORM-04)
 
 ### Phase 5: Premium 3D Hero
