@@ -56,3 +56,21 @@ test('contact: empty submit shows errors, marks aria-invalid, focuses first inva
 	await expect(page.getByLabel('Name')).toHaveAttribute('aria-invalid', 'true');
 	expect(hit).toBe(false);
 });
+
+test('volunteer: form on /get-involved submits and confirms (FORM-02)', async ({ page }) => {
+	await page.route('**/api.web3forms.com/submit', (route) =>
+		route.fulfill({
+			status: 200,
+			contentType: 'application/json',
+			body: JSON.stringify({ success: true, message: 'ok' })
+		})
+	);
+	await page.goto('./get-involved/');
+	await page.getByLabel('Name').fill('Grace');
+	await page.getByLabel('Email').fill('grace@example.com');
+	await page.getByLabel(/how would you like to help/i).fill('Outreach');
+	await page.getByRole('button', { name: /sign me up/i }).click();
+	const status = page.locator('.form-status.ok');
+	await expect(status).toBeVisible();
+	await expect(status).toBeFocused();
+});
