@@ -13,10 +13,10 @@ A static, prerendered SvelteKit site for Eman Rimawi's disability-advocacy nonpr
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Static Deploy** - Prove a blank SvelteKit page ships live to the GitHub Pages sub-path with correct base path, `.nojekyll`, and deep-link 404 handling
-- [ ] **Phase 2: Design System & Dual Theme** - Two complete peer themes (Premium + Accessible) as token sets, with a no-flash, persistent, accessible toggle
-- [ ] **Phase 3: App Shell, Content Pipeline & Pages** - The full seven-page accessible site with real DID content and a markdown-driven blog, standing alone without forms or 3D
-- [ ] **Phase 4: Forms & Donate** - Accessible contact/volunteer forms via a static-host backend plus a safe donate link-out
-- [ ] **Phase 5: Premium 3D Hero** - A lazy, capability-gated, poster-first Threlte 3D hero that never blocks or breaks any other experience
+- [x] **Phase 2: Design System & Dual Theme** - Two complete peer themes (Premium + Accessible) as token sets, with a no-flash, persistent, accessible toggle (completed 2026-07-06)
+- [x] **Phase 3: App Shell, Content Pipeline & Pages** - The full seven-page accessible site with real DID content and a markdown-driven blog, standing alone without forms or 3D (completed 2026-07-06)
+- [x] **Phase 4: Forms & Donate** - Accessible contact/volunteer forms via a static-host backend plus a safe donate link-out (completed 2026-07-06)
+- [x] **Phase 5: Premium 3D Hero** - A lazy, capability-gated, poster-first Threlte 3D hero that never blocks or breaks any other experience (completed 2026-07-06)
 - [ ] **Phase 6: Accessible Hardening & Launch Verification** - Independent WCAG 2.2 AA+ verification of the deployed build and a published, honest accessibility statement
 
 ## Phase Details
@@ -125,8 +125,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Static Deploy | 3/3 | Complete | 2026-07-04 |
-| 2. Design System & Dual Theme | 0/3 | Planned | - |
-| 3. App Shell, Content Pipeline & Pages | 0/5 | Planned | - |
-| 4. Forms & Donate | 0/2 | Planned | - |
-| 5. Premium 3D Hero | 0/3 | Planned | - |
-| 6. Accessible Hardening & Launch Verification | 0/2 | Planned | - |
+| 2. Design System & Dual Theme | 3/3 | Complete   | 2026-07-06 |
+| 3. App Shell, Content Pipeline & Pages | 5/5 | Complete   | 2026-07-06 |
+| 4. Forms & Donate | 2/2 | Complete   | 2026-07-06 |
+| 5. Premium 3D Hero | 3/3 | Complete   | 2026-07-06 |
+| 6. Accessible Hardening & Launch Verification | 0/2 | Planned    |  |
