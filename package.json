@@ -14,6 +14,7 @@
 		"verify:deploy": "bash scripts/verify-deploy.sh",
 		"test:unit": "vitest run",
 		"test:no-shiki": "node scripts/assert-no-shiki-chunk.mjs",
+		"test:no-three": "node scripts/check-3d-boundary.mjs",
 		"test:no-secret": "node scripts/assert-no-secret.mjs",
 		"test:theme": "playwright test --config playwright.theme.config.ts",
 		"test:e2e": "playwright test --config playwright.theme.config.ts",

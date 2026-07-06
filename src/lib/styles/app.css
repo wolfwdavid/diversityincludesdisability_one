@@ -38,3 +38,16 @@ main .prose { max-inline-size: var(--measure); }
 /* WCAG 2.4.11 focus-not-obscured: keep anchored/focused headings clear of a sticky header. */
 :target { scroll-margin-top: calc(var(--header-height) + var(--space-4)); }
 main :is(h1, h2, h3, [tabindex]) { scroll-margin-top: calc(var(--header-height) + var(--space-4)); }
+
+/* Premium 3D hero background layer. Positioning lives HERE (always-loaded) so the scene
+   components need no scoped <style> — that is the four-level CSS-leak fix (see 05-RESEARCH). */
+.hero-scene {
+	position: absolute; inset: 0; z-index: 1;
+	pointer-events: none;                 /* decorative; never captures input */
+	opacity: 0;                           /* poster shows through until first frame */
+	transition: opacity 800ms var(--motion-ease);   /* D-17 crossfade AND D-07 scroll fade */
+}
+/* Visible only once the first frame painted (is-ready, D-17) AND the hero is on-screen
+   (is-onscreen, D-07). HeroScene toggles both classes; Scene bubbles onscreen up. */
+.hero-scene.is-ready.is-onscreen { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .hero-scene { transition: none; } }
