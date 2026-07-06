@@ -47,10 +47,18 @@ test('D-07: scrolling the hero out of view fades + pauses the scene', async ({ p
 	await page.goto('./');
 	await expect(page.locator('canvas')).toBeVisible({ timeout: 10_000 });
 	await expect(page.locator('.hero-scene')).toHaveClass(/is-onscreen/);
+	// The home page is short (hero ≈ 85svh), so give it a tall runway below the fold — the IO uses
+	// threshold 0 and only reports "gone" once the canvas is fully past the viewport top.
+	await page.evaluate(() => {
+		const spacer = document.createElement('div');
+		spacer.id = '__d07_spacer';
+		spacer.style.height = '2500px';
+		document.body.appendChild(spacer);
+	});
 	// Scroll the hero fully out of view — gentle fade (class removed) + RAF pause (D-07).
-	await page.mouse.wheel(0, 2000);
+	await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
 	await expect(page.locator('.hero-scene')).not.toHaveClass(/is-onscreen/);
 	// Scroll back to top — the scene regains is-onscreen and resumes.
-	await page.mouse.wheel(0, -2000);
+	await page.evaluate(() => window.scrollTo(0, 0));
 	await expect(page.locator('.hero-scene')).toHaveClass(/is-onscreen/);
 });
