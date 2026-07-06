@@ -81,11 +81,11 @@ Plans:
   1. A visitor can submit the contact form and the volunteer/get-involved form and receives a clear success or error confirmation.
   2. Both forms have associated labels, are keyboard-navigable, and announce errors to assistive tech.
   3. The donate action is a clearly-labeled external link (`rel="noopener noreferrer"`) to the org's existing platform — never an embedded checkout.
-**Plans**: TBD (~2 plans)
+**Plans**: 2 plans (waves 1 -> 2)
 
 Plans:
-- [ ] 04-01: Accessible Contact + Volunteer forms via Web3Forms (labels, `aria-describedby` errors, focus-managed confirmation, honeypot) — endpoint IDs only, no secrets
-- [ ] 04-02: Donate link-out (`rel="noopener noreferrer"`, URL in config) + privacy note
+- [ ] 04-01-accessible-forms-web3forms-PLAN.md — [wave 1] Shared `submitToWeb3Forms()` + pure validation util (+unit test) + focus-managed `FormStatus`; wire contact form (drop per-field role=alert, add aria-invalid + one form-level status region, honeypot `botcheck`); volunteer form section on /get-involved; route-mocked E2E (FORM-01/02/03)
+- [ ] 04-02-donate-linkout-secret-scan-PLAN.md — [wave 2] Config-driven external donate link-out (`rel="noopener noreferrer"` + new-tab cue + privacy note, reads `DONATE_URL` from `config.ts`) + `scripts/assert-no-secret.mjs` static scan wired as `test:no-secret` (FORM-04)
 
 ### Phase 5: Premium 3D Hero
 **Goal**: The Premium home hero renders a performant Threlte 3D showpiece that is lazy-loaded only when Premium AND WebGL AND motion-ok AND not-low-power, shows a static poster first in all other cases, never blocks first paint, and disposes cleanly on navigation. Built last on purpose — Phases 1–4 already deliver a complete, accessible, deployed site, so the hero can never block launch.
@@ -127,6 +127,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 1. Foundation & Static Deploy | 3/3 | Complete | 2026-07-04 |
 | 2. Design System & Dual Theme | 0/3 | Planned | - |
 | 3. App Shell, Content Pipeline & Pages | 0/5 | Planned | - |
-| 4. Forms & Donate | 0/2 | Not started | - |
+| 4. Forms & Donate | 0/2 | Planned | - |
 | 5. Premium 3D Hero | 0/3 | Not started | - |
 | 6. Accessible Hardening & Launch Verification | 0/2 | Not started | - |
