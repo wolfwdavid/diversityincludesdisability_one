@@ -3,6 +3,7 @@
 	import { submitToWeb3Forms } from '$lib/forms/submit';
 	import { validateVolunteer, type Errors } from '$lib/forms/validation';
 	import FormStatus from '$lib/components/FormStatus.svelte';
+	import { DONATE_URL, DONATE_PLATFORM_NAME } from '$lib/config';
 
 	let vErrors = $state<Errors>({});
 	let vStatus = $state<'idle' | 'sending' | 'ok' | 'err'>('idle');
@@ -87,13 +88,15 @@
 
 <section aria-labelledby="donate">
 	<h2 id="donate">Donate</h2>
-	<p>Support our work directly. Donations open on our external giving platform.</p>
-	<!-- TODO(Phase 4/FORM-04): replace href="#" with the real external donation URL. No embedded payment widget. -->
+	<p>Support our work directly. Donations are handled securely on {DONATE_PLATFORM_NAME}, an external platform.</p>
 	<p>
-		<!-- svelte-ignore a11y_invalid_attribute -->
-		<a class="button" href="#" rel="noopener noreferrer">Donate (external)</a>
+		<a class="button" href={DONATE_URL} target="_blank" rel="noopener noreferrer">
+			Donate on {DONATE_PLATFORM_NAME}<span class="sr-only"> (opens in a new tab)</span>
+		</a>
 	</p>
-	<p class="disclaimer"><em>Donation link is a placeholder — the giving platform URL is wired in Phase 4.</em></p>
+	<p class="disclaimer">
+		Clicking this link leaves our site; {DONATE_PLATFORM_NAME}'s own privacy policy applies. We never process payments on this site.
+	</p>
 </section>
 
 <style>

@@ -74,3 +74,15 @@ test('volunteer: form on /get-involved submits and confirms (FORM-02)', async ({
 	await expect(status).toBeVisible();
 	await expect(status).toBeFocused();
 });
+
+test('donate: external link reads config URL, is labeled, and is safe (FORM-04)', async ({ page }) => {
+	await page.goto('./get-involved/');
+	const link = page.getByRole('link', { name: /donate on/i });
+	await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+	await expect(link).toHaveAttribute('target', '_blank');
+	const href = await link.getAttribute('href');
+	expect(href).toMatch(/^https?:\/\//); // absolute external URL, not '#'
+	expect(href).not.toBe('#');
+	// No embedded checkout/iframe on the page.
+	await expect(page.locator('iframe')).toHaveCount(0);
+});
