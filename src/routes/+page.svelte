@@ -1,6 +1,7 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import PremiumHero from '$lib/components/premium/PremiumHero.svelte';
+  import { theme } from '$lib/theme/theme.svelte';
 </script>
 
 <svelte:head>
@@ -10,8 +11,19 @@
 
 <!-- Static hero placeholder. The Phase-5 Premium 3D hero replaces this region behind a capability gate. -->
 <section class="hero">
+  <!-- Premium-only poster: the permanent fallback for every non-render path (reduced-motion,
+       no-WebGL, low-power, import failure, context loss) AND the crossfade origin — the canvas
+       (.hero-scene, z1) fades in OVER this on first frame so it reads as "the stars begin to move"
+       (D-17). Accessible renders NO image (D-15). Base-prefixed for the sub-path deploy. -->
+  {#if theme.current === 'premium'}
+    <picture class="hero__poster" aria-hidden="true">
+      <source type="image/avif" srcset="{base}/hero/constellation-poster.avif" />
+      <source type="image/webp" srcset="{base}/hero/constellation-poster.webp" />
+      <img src="{base}/hero/constellation-poster.jpg" alt="" width="1112" height="1530" />
+    </picture>
+  {/if}
   <!-- Premium-only decorative 3D background (behind the text). Three-free gate; mounts the scene
-       only when the capability gate passes, else renders nothing and the navy bg shows. -->
+       only when the capability gate passes, else renders nothing and the poster shows. -->
   <PremiumHero />
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="hero__content">
@@ -40,7 +52,10 @@
 
 <style>
   .hero { position: relative; isolation: isolate; padding-block: var(--space-section) var(--space-8); }
-  /* Text sits above the scene (z1, app.css) and the scrim (z2). */
+  /* Poster underlay (z0): the canvas (.hero-scene, z1) crossfades in over it. Decorative. */
+  .hero__poster { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .hero__poster img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  /* Text sits above the poster (z0), the scene (z1, app.css) and the scrim (z2). */
   .hero__content { position: relative; z-index: 3; }
   /* Soft darkening behind the text column so Premium text keeps AA margin where orbs overlap.
      Inert (pointer-events:none) and transparent to content; harmless in Accessible (no scene there). */
