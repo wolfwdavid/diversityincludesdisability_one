@@ -13,13 +13,13 @@ Every visitor — regardless of ability, device, or assistive technology — get
 ### Validated
 
 - [x] Static build (SvelteKit static adapter) deployable to GitHub Pages — *Validated in Phase 1: Foundation & Static Deploy. Live at https://wolfwdavid.github.io/diversityincludesdisability_one/ with DEPLOY-01..04 verified against the live URL (base path, .nojekyll, prerender, 404 deep-link fallback, CI deploy on push to main).*
+- [x] Premium mode: one performant 3D hero showpiece (Three.js/Threlte) — *Validated in Phase 5: Premium 3D Hero. Lazy, capability-gated (Premium AND WebGL AND motion-ok AND not-low-power), poster-first fallback for every other path, D-07 fade+RAF-pause on scroll, clean renderer disposal; three/@threlte code-split out of the accessible/home entry (HERO-01..04, A11Y-05 verified).*
+- [x] `prefers-reduced-motion` / no-WebGL / low-power are always honored — *Validated in Phase 5: the hero-mount capability gate (src/lib/a11y/prefers.svelte.ts) lands reduced-motion + WebGL + low-power detection; any fail → static poster, never a broken hero.*
 
 ### Active
 
 - [ ] Dual-theme toggle (Premium ↔ Accessible) that persists across visits and pages
 - [ ] Accessible mode meets WCAG 2.2 AA+ (Scope-benchmark: contrast, keyboard, SR, focus)
-- [ ] `prefers-reduced-motion` / no-WebGL / low-power are always honored
-- [ ] Premium mode: one performant 3D hero showpiece (Three.js/Threlte)
 - [ ] Full-site content mirrored from diversityincludesdisability.org (real copy)
 - [ ] Pages: Home, About/Mission, Programs & Services, Get Involved/Donate, Blog/News, Events, Contact
 - [ ] Blog/News driven by markdown content (static, no server)
