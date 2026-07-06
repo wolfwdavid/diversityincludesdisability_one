@@ -10,12 +10,11 @@
 <!-- Static hero placeholder. The Phase-5 Premium 3D hero replaces this region behind a capability gate. -->
 <section class="hero">
   <h1>Diversity Includes Disability</h1>
-  <!-- MISSION SUMMARY: AUTHORED PLACEHOLDER — confirm/replace with org-approved wording before launch. -->
+  <!-- MISSION SUMMARY: org-approved 2026-07-06 — do not reword without a new sign-off. -->
   <p class="lede">
     Intersectional disability equity — for and by disabled people. Through training, consulting,
     representation, and public speaking, we help organizations move beyond compliance to genuine inclusion.
   </p>
-  <p class="disclaimer"><em>Placeholder mission summary — pending organization sign-off.</em></p>
 
   <div class="cta-row">
     <a class="button" href="{base}/get-involved">Get Involved</a>

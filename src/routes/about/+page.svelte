@@ -11,13 +11,12 @@
 
 <section aria-labelledby="mission">
   <h2 id="mission">Our mission</h2>
-  <!-- MISSION: AUTHORED PLACEHOLDER — the live site exposes no mission prose. Confirm/replace before launch. -->
+  <!-- MISSION: org-approved 2026-07-06 — do not reword without a new sign-off. -->
   <p>
     Diversity Includes Disability advances intersectional disability equity — for and by disabled people.
     Through training, consulting, representation, and public speaking, we help organizations move beyond
     compliance to genuine inclusion, centering the leadership of disabled people of color.
   </p>
-  <p class="disclaimer"><em>Placeholder mission statement — pending organization sign-off.</em></p>
 </section>
 
 <section aria-labelledby="founder">
