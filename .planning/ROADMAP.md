@@ -111,11 +111,11 @@ Plans:
   1. Automated axe scans pass WCAG 2.2 AA on every page in the Accessible theme, corroborated by a manual screen-reader and keyboard walkthrough across both themes.
   2. A published accessibility statement page states the conformance target, test cadence, an honest known-issues list, and a help contact (Scope-style).
   3. The deployed site verifies clean end-to-end: correct base path, deep links resolve, `_app` assets return 200, and a branded 404 page renders.
-**Plans**: TBD (~2 plans)
+**Plans**: 2 plans (waves 1 -> 2)
 
 Plans:
-- [ ] 06-01: axe + Lighthouse across both themes, manual SR + keyboard walkthrough, contrast + reduced-motion + no-WebGL checks; fix findings
-- [ ] 06-02: Accessibility statement page + branded 404; final deployed-URL verification checklist
+- [ ] 06-01-axe-wcag-verification-PLAN.md — [wave 1] Install @axe-core/playwright; author `npm run test:a11y` WCAG 2.2 AA scan (7 routes x both themes, wcag22aa tags, violations==[]) + reduced-motion/zero-WebGL capability spec; fix findings; human SR + keyboard walkthrough (A11Y-01)
+- [ ] 06-02-a11y-statement-404-launch-verify-PLAN.md — [wave 2] Scope-style /accessibility/ statement (conformance target, test cadence, honest known-issues, help contact) + footer link + add to axe set; harden branded 404; extend deployed-URL harness + LAUNCH-CHECKLIST.md; human live-URL verify (A11Y-06)
 
 ## Progress
 
@@ -129,4 +129,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. App Shell, Content Pipeline & Pages | 0/5 | Planned | - |
 | 4. Forms & Donate | 0/2 | Planned | - |
 | 5. Premium 3D Hero | 0/3 | Planned | - |
-| 6. Accessible Hardening & Launch Verification | 0/2 | Not started | - |
+| 6. Accessible Hardening & Launch Verification | 0/2 | Planned | - |
