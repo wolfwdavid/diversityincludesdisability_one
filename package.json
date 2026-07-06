@@ -25,6 +25,7 @@
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.63.0",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"@types/three": "^0.185.0",
 		"jsdom": "^29.1.1",
 		"mdsvex": "^0.12.7",
 		"rehype-slug": "^6.0.0",
@@ -34,5 +35,9 @@
 		"typescript": "^6.0.3",
 		"vite": "^8.0.16",
 		"vitest": "^4.1.9"
+	},
+	"dependencies": {
+		"@threlte/core": "^8.5.16",
+		"three": "^0.185.1"
 	}
 }
