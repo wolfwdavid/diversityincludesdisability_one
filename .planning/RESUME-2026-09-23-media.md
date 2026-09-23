@@ -5,6 +5,13 @@
 - Imported 1 runway photo (screenshot) and 2 phone videos; see `content/media/eman/MANIFEST.md` for names, sizes, and caveats.
 - Committed locally on `main`. **Not pushed**: the repo publishes to GitHub Pages and the photo is of a real person; push only after Eman OKs it.
 
+## Update, same day: wired into the About page
+- Photo cropped (border + "18/20" badge removed → 985×943) and written as `static/about/eman-runway.{avif,webp,jpg}`; clips copied to `static/about/eman-clip-{1,2}.mp4`.
+- `src/routes/about/+page.svelte`: `<figure>` portrait under the founder heading (draft alt text, flagged in a comment) + a new "Watch" section with two `<video controls preload="metadata">` elements and MP4 download fallbacks.
+- Verified: svelte-check (only the pre-existing `@types/node` error), `BASE_PATH=/diversityincludesdisability_one npm run build`, preview on private port 4191 → `/about/` 200, all 5 assets 200 with correct MIME types, screenshot reviewed in Premium theme.
+- Build gotcha on Windows Git Bash: set `MSYS_NO_PATHCONV=1` or the BASE_PATH gets rewritten to a Windows path and svelte.config.js rejects it.
+- STILL NOT PUSHED. Still open before publishing: Eman's consent + photographer credit, alt-text sign-off, captions/transcripts for both clips (WCAG 1.2.2 — Phase 6 axe run will not catch missing captions, review by hand), and higher-res video if it exists.
+
 ## State of the repo otherwise
 - Unchanged since 2026-07-11 (`docs: add Windows-to-Mac machine-move handoff for Phase 6 resume`).
 - Phases 1–5 complete and live; Phase 6 (Accessible Hardening & WCAG launch verify) planned, 2 plans / 2 waves, not executed. See `MAC-HANDOFF.md` and `STATE.md`.

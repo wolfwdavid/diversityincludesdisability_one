@@ -2,7 +2,7 @@
 
 Raw files supplied by Eman Rimawi on 2026-09-22. `originals/` is the untouched
 source; `web/` holds browser-ready derivatives made with ffmpeg 8.1.1.
-Nothing here is wired into the site yet.
+Wired into `/about/` on 2026-09-23 via `static/about/` (cropped photo + both clips); this folder stays as the source archive.
 
 | Web file | Original | What it is | Notes |
 |---|---|---|---|
