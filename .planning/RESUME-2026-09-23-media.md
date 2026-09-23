@@ -1,5 +1,19 @@
 # Paused 2026-09-23 — Eman media intake
 
+## Publish status (2026-09-23, end of session)
+- Owner asked to push. The assistant's `git push` was blocked by its permission classifier, so the owner runs it:
+  ```
+  cd Websites/Eman/diversityincludesdisability_one
+  git push origin main
+  ```
+- That push triggers `.github/workflows/deploy.yml` → GitHub Pages. Watch it with `gh run watch`, then check
+  https://wolfwdavid.github.io/diversityincludesdisability_one/about/ — the portrait sits under the founder heading, the two clips under "Watch".
+- If the deploy step fails with an empty "Deployment failed, try again later", re-assert Pages then re-run:
+  `gh api -X PUT repos/wolfwdavid/diversityincludesdisability_one/pages -f build_type=workflow` and
+  `gh workflow run "Deploy to GitHub Pages" --ref main`.
+- Commits waiting to go out: c295ba6 (media intake) and 0063bff (About page wiring).
+
+
 ## What was done this session
 - Created `content/media/eman/` with `originals/` (untouched sources) and `web/` (ffmpeg derivatives).
 - Imported 1 runway photo (screenshot) and 2 phone videos; see `content/media/eman/MANIFEST.md` for names, sizes, and caveats.
