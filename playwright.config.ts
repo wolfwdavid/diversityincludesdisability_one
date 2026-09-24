@@ -1,10 +1,10 @@
 import { defineConfig } from '@playwright/test';
 
-// Normalize to a trailing slash so relative goto() paths resolve UNDER the repo
-// sub-path. Without it, a leading-slash goto('/about/') resets to the origin root
-// (https://wolfwdavid.github.io/about/) and hits GitHub's raw 404 instead of our site.
+// Normalize to a trailing slash so relative goto() paths resolve UNDER the base URL.
+// Default is the custom-domain root; a sub-path BASE_URL (e.g. a Pages preview) still
+// works because tests use relative paths.
 const RAW_BASE_URL =
-	process.env.BASE_URL ?? 'https://wolfwdavid.github.io/diversityincludesdisability_one';
+	process.env.BASE_URL ?? 'https://www.diversityincludesdisability.org';
 const BASE_URL = RAW_BASE_URL.endsWith('/') ? RAW_BASE_URL : `${RAW_BASE_URL}/`;
 
 export default defineConfig({

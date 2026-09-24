@@ -8,7 +8,7 @@
       // Runs synchronously before first paint. Inline => base-path-immune (no %sveltekit.assets%).
       (function () {
         try {
-          var KEY = 'did:theme'; // NAMESPACED — origin is shared across wolfwdavid.github.io projects
+          var KEY = 'did:theme'; // NAMESPACED — kept from the shared wolfwdavid.github.io days; harmless on the custom domain
           var stored = localStorage.getItem(KEY);
           var theme;
           if (stored === 'premium' || stored === 'accessible') {

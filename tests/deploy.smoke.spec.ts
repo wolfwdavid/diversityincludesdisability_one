@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 const BASE =
-	process.env.BASE_URL ?? 'https://wolfwdavid.github.io/diversityincludesdisability_one';
+	process.env.BASE_URL ?? 'https://www.diversityincludesdisability.org';
 
-// Paths are RELATIVE (no leading slash) so they resolve under the repo sub-path
-// baseURL (…/diversityincludesdisability_one/). A leading slash would reset to the
-// origin root and hit GitHub's raw 404.
+// Paths are RELATIVE (no leading slash) so they resolve under whatever baseURL is
+// set — the custom domain root by default, or a repo sub-path when BASE_URL points
+// at one. A leading slash would reset to the origin root.
 test('DEPLOY-01: root serves the built HTML', async ({ page }) => {
 	const res = await page.goto('./');
 	expect(res?.status()).toBeLessThan(400);
