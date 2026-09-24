@@ -2,6 +2,7 @@
 export const navItems = [
 	{ href: '/', label: 'Home' },
 	{ href: '/about', label: 'About' },
+	{ href: '/creative', label: 'Creative' },
 	{ href: '/programs', label: 'Programs & Services' },
 	{ href: '/get-involved', label: 'Get Involved' },
 	{ href: '/events', label: 'Events' },

@@ -2,13 +2,20 @@
 
 Raw files supplied by Eman Rimawi on 2026-09-22. `originals/` is the untouched
 source; `web/` holds browser-ready derivatives made with ffmpeg 8.1.1.
-Wired into `/about/` on 2026-09-23 via `static/about/` (cropped photo + both clips); this folder stays as the source archive.
+Wired into `/creative/` on 2026-09-24 via `static/creative/` (first wired into `/about/` on 2026-09-23, then moved at Eman's request) (cropped photo + both clips); this folder stays as the source archive.
 
 | Web file | Original | What it is | Notes |
 |---|---|---|---|
-| `web/2026-09-22-runway-one-world-worldwide.webp` (83 KB) | `originals/…worldwide.png` (1.2 MB, 1031×1069 screenshot) | Eman on a runway, crutch and prosthetic leg visible, "Revolution" tee, "One World Worldwide" backdrop; photo 18/20 of a gallery | Screenshot of a phone gallery: has a dark letterbox border and an "18/20" badge top-right. Crop before use. Ask Eman for the original photo and photographer credit. |
+| `web/2026-09-22-runway-one-world-worldwide.webp` (83 KB) | `originals/…worldwide.png` (1.2 MB, 1031×1069 screenshot) | Eman on a runway, crutch and prosthetic leg visible, "Revolution" tee, "One World Peace" backdrop (designer: One World Peace Co.; show: The Model Experience, New York Fashion Week); photo 18/20 of a gallery | Screenshot of a phone gallery: has a dark letterbox border and an "18/20" badge top-right. Crop before use. Ask Eman for the original photo and photographer credit. |
 | `web/2026-09-22-video-01.mp4` (310 KB, 21 s) | `originals/2026-09-22-video-01.3gp` (was `Downloads/video0000.3gp`) | Unreviewed clip | 176×144 H.263/AMR source → H.264 baseline + AAC, faststart. Resolution is too low for a hero; fine for a thumbnail-sized inline clip or as a placeholder. |
 | `web/2026-09-22-video-02.mp4` (1.0 MB, 60 s) | `originals/2026-09-22-video-02.3gp` (was `Downloads/video0000 (1).3gp`) | Unreviewed clip | Same encode as above. |
+
+## Credit (from Eman, 2026-09-24)
+
+- Show: The Model Experience, New York Fashion Week.
+- Designer walked for: One World Peace Co.
+- The earlier "One World Worldwide" wording was a misread of the backdrop. The file slugs
+  (`…runway-one-world-worldwide.*`) keep that old name on purpose — originals are never renamed.
 
 ## Placement candidates (decide on resume)
 

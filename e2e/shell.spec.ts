@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const ROUTES = ['/', '/about/', '/programs/', '/get-involved/', '/events/', '/blog/', '/contact/'];
+const ROUTES = ['/', '/about/', '/creative/', '/programs/', '/get-involved/', '/events/', '/blog/', '/contact/'];
 
 // --- A11Y-02: skip link is first focusable and MOVES focus into <main> ---
 test('skip link is first tab stop and moves focus into main (A11Y-02)', async ({ page }) => {
@@ -40,10 +40,10 @@ test('heading order never skips a level across pages (A11Y-03)', async ({ page }
 });
 
 // --- PAGE-08: every nav item is reachable via the header nav ---
-test('all 7 pages reachable from header nav (PAGE-08)', async ({ page }) => {
+test('all 8 pages reachable from header nav (PAGE-08)', async ({ page }) => {
 	await page.goto('./');
 	const nav = page.locator('nav[aria-label="Primary"]');
-	for (const label of [/home/i, /about/i, /programs/i, /get involved/i, /events/i, /news/i, /contact/i]) {
+	for (const label of [/home/i, /about/i, /creative/i, /programs/i, /get involved/i, /events/i, /news/i, /contact/i]) {
 		await expect(nav.getByRole('link', { name: label })).toHaveCount(1);
 	}
 });
