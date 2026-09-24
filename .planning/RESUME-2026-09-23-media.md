@@ -37,3 +37,11 @@
 4. Crop the runway screenshot (drop the dark border and the "18/20" badge), regenerate the webp, and copy chosen `web/` files into `static/` when wiring them into a route.
 5. Either fold the media wiring into Phase 6 or add a small phase via `/gsd:add-phase`, then `/gsd:execute-phase`.
 6. Push once Eman has signed off.
+
+## Update 2026-09-24 — Eman's feedback applied (quick task 260924-dd3)
+- New `/creative/` page (nav: between About and Programs): Pictures section with the runway photo, Videos section below it with both clips. Media moved `static/about/` → `static/creative/`. About page now links to it instead of hosting the media.
+- Credit corrected everywhere: show = The Model Experience for New York Fashion Week; designer = One World Peace Co. ("One World Worldwide" was a misread of the backdrop; file slugs keep the old name, see MANIFEST.md).
+- Contact email → diversityincludesdisability@gmail.com (Footer, Contact ×2, Get Involved, config comment, e2e locators).
+- Verified: svelte-check (only pre-existing @types/node error), BASE_PATH build, preview curl matrix (2 routes + 5 assets 200, old /about/ asset URLs 404), build greps, 9 unit tests, 26 Playwright tests.
+- Commits on main, NOT pushed: 8904b20, 9631526, plus the planning-docs commit. Owner runs `git push origin main`.
+- Still open with Eman: alt-text sign-off, clip captions/transcripts (WCAG 1.2.2), higher-res clip originals, photographer credit if she wants one.
