@@ -115,10 +115,11 @@ None yet.
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 260924-dd3 | Eman feedback: Creative page with runway media, corrected show/designer credit, org contact email | 2026-09-24 | 9631526 | [260924-dd3-eman-feedback-creative-page-with-runway-](./quick/260924-dd3-eman-feedback-creative-page-with-runway-/) |
+| 260924-dy2 | Mobile fixes: collapse primary menu by default on phones, full-width clips on Creative page | 2026-09-24 | 44d0afc | [260924-dy2-mobile-fixes-collapse-primary-menu-by-de](./quick/260924-dy2-mobile-fixes-collapse-primary-menu-by-de/) |
 
 ## Session Continuity
 
 Last session: 2026-09-24
-Last activity: 2026-09-24 - Completed quick task 260924-dd3: Eman feedback: Creative page with runway media, corrected show/designer credit, org contact email
-Stopped at: Quick task 260924-dd3 committed on main, awaiting owner push
+Last activity: 2026-09-24 - Completed quick task 260924-dy2: Mobile fixes: collapse primary menu by default on phones, full-width clips on Creative page
+Stopped at: Quick tasks 260924-dd3 + 260924-dy2 pushed and live
 Resume file: .planning/RESUME-2026-09-23-media.md

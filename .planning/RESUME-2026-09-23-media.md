@@ -45,3 +45,9 @@
 - Verified: svelte-check (only pre-existing @types/node error), BASE_PATH build, preview curl matrix (2 routes + 5 assets 200, old /about/ asset URLs 404), build greps, 9 unit tests, 26 Playwright tests.
 - Commits on main, NOT pushed: 8904b20, 9631526, plus the planning-docs commit. Owner runs `git push origin main`.
 - Still open with Eman: alt-text sign-off, clip captions/transcripts (WCAG 1.2.2), higher-res clip originals, photographer credit if she wants one.
+
+## Update 2026-09-24 (later) — mobile fixes (quick task 260924-dy2)
+- Site-wide bug: on phones the primary menu ignored its `hidden` attribute (scoped `.menu{display:flex}` beat the UA rule), so all 8 links were stacked open on every page (header 557px tall). Fixed in Header.svelte with a mobile `.menu[hidden]{display:none}` + Menu button and Theme toggle on one row; header now ~105-110px closed.
+- Creative page clips now fill the column on phones (352px, were 194px thumbnails); side by side on desktop.
+- e2e: nav disclosure test now runs at 390px and asserts hidden/visible/hidden; new desktop test. 27/27 Playwright, 9/9 unit, BASE_PATH build + iPhone-13 preview matrix 34/34.
+- Commits c0558b4, 44d0afc (+ planning docs), pushed by assistant.
