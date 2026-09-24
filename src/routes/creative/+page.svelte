@@ -82,9 +82,15 @@
     margin: 0;
     list-style: none;
   }
+  /* Each item grows to fill the column on phones (the 176x144 clips otherwise shrink-wrap to
+     thumbnails) and pairs up on desktop, capped at 22rem so the phone clips are not upscaled to mush. */
+  .clips li {
+    flex: 1 1 14rem;
+    max-inline-size: 22rem;
+  }
   .clips video {
     display: block;
-    inline-size: min(100%, 22rem);
+    inline-size: 100%;
     block-size: auto;
     background: #000;
     border: 1px solid var(--color-border);
