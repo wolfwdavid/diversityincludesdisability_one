@@ -49,16 +49,39 @@ test('all 8 pages reachable from header nav (PAGE-08)', async ({ page }) => {
 });
 
 // --- A11Y-04: disclosure nav is keyboard operable, Escape returns focus, targets >=24px ---
-test('nav disclosure: aria-expanded toggles, Escape closes + returns focus (A11Y-04)', async ({ page }) => {
-	await page.setViewportSize({ width: 390, height: 800 }); // mobile: disclosure visible
+// The list must also be REALLY hidden on phones: the scoped .menu { display: flex } once
+// out-specified the UA [hidden] rule, so every page loaded with all links expanded.
+test('nav disclosure: menu hidden on load, aria-expanded toggles, Escape closes + returns focus (A11Y-04)', async ({ page }) => {
+	await page.setViewportSize({ width: 390, height: 844 }); // iPhone 13: disclosure visible
 	await page.goto('./');
 	const toggle = page.getByRole('button', { name: /menu/i });
+	const menu = page.locator('#primary-menu');
 	await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+	await expect(menu).toBeHidden();
 	await toggle.click();
 	await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+	await expect(menu).toBeVisible();
+	// Menu button + theme toggle share a row; the open list spans the nav beneath them.
+	const [tb, th, mb, nb] = await Promise.all([
+		toggle.boundingBox(),
+		page.locator('.theme-toggle').boundingBox(),
+		menu.boundingBox(),
+		page.locator('nav[aria-label="Primary"]').boundingBox()
+	]);
+	expect(Math.abs(tb!.y - th!.y)).toBeLessThan(2);
+	expect(mb!.y).toBeGreaterThanOrEqual(tb!.y + tb!.height - 1);
+	expect(mb!.width).toBeGreaterThanOrEqual(nb!.width - 1);
 	await page.keyboard.press('Escape');
 	await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+	await expect(menu).toBeHidden();
 	await expect(toggle).toBeFocused();
+});
+
+test('primary menu is visible on desktop widths without the disclosure button (PAGE-08)', async ({ page }) => {
+	await page.setViewportSize({ width: 1200, height: 800 });
+	await page.goto('./');
+	await expect(page.locator('#primary-menu')).toBeVisible();
+	await expect(page.getByRole('button', { name: /menu/i })).toBeHidden();
 });
 
 test('focused nav links show a visible focus outline (A11Y-04 / WCAG 2.4.7)', async ({ page }) => {

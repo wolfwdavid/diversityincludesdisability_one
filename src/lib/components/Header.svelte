@@ -63,6 +63,13 @@
 		color: var(--color-text); text-decoration: none; margin-inline-end: auto;
 		min-block-size: 44px; display: inline-flex; align-items: center;
 	}
+	/* Mobile: the nav takes its own row under the brand; the Menu button and the
+	   theme toggle share a line and the open list wraps beneath them at full width. */
+	nav {
+		display: flex; flex-wrap: wrap; align-items: center;
+		gap: var(--space-2) var(--space-3);
+		flex: 1 1 100%;
+	}
 	.nav-toggle {
 		min-block-size: 44px; min-inline-size: 44px;
 		padding: var(--space-2) var(--space-4);
@@ -70,7 +77,14 @@
 		border: 1px solid var(--color-border); border-radius: var(--radius);
 		font: inherit; cursor: pointer;
 	}
-	.menu { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); padding: 0; }
+	.menu {
+		list-style: none; display: flex; flex-direction: column; gap: var(--space-2); padding: 0;
+		flex-basis: 100%; /* mobile: open list spans the whole nav row */
+		order: 1;         /* mobile: after the Menu button AND the theme toggle, without moving markup */
+	}
+	/* The `hidden` attribute must win on phones: the scoped .menu rule above out-specifies the
+	   UA [hidden] { display: none } and reset.css has no [hidden] rule. */
+	.menu[hidden] { display: none; }
 	.menu a {
 		display: inline-flex; align-items: center;
 		min-block-size: 44px; padding: var(--space-2) var(--space-3);
@@ -83,8 +97,9 @@
 	}
 	/* Desktop: show the list inline, hide the disclosure button. */
 	@media (min-width: 48rem) {
+		nav { flex: 0 1 auto; }
 		.nav-toggle { display: none; }
-		.menu { flex-direction: row; align-items: center; gap: var(--space-4); }
+		.menu { flex-direction: row; align-items: center; gap: var(--space-4); flex-basis: auto; order: 0; }
 		.menu[hidden] { display: flex; } /* desktop always shows the list regardless of `open` */
 	}
 </style>
