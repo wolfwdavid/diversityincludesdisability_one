@@ -80,7 +80,7 @@
 			</button>
 			{#if vStatus === 'err'}
 				<FormStatus kind="err" message={vMessage} />
-				<p class="disclaimer">If this keeps happening, email <a href="mailto:emanrimawi@gmail.com">emanrimawi@gmail.com</a>.</p>
+				<p class="disclaimer">If this keeps happening, email <a href="mailto:diversityincludesdisability@gmail.com">diversityincludesdisability@gmail.com</a>.</p>
 			{/if}
 		</form>
 	{/if}

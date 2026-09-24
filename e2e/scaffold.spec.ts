@@ -14,7 +14,7 @@ test('Contact fields are all labeled and wired with aria-describedby (PAGE-07)',
   }
   await expect(page.locator('input#c-name')).toHaveAttribute('aria-describedby', 'c-name-error');
   // Scope to <main>: the footer landmark also links the same email (see 03-01 Footer).
-  await expect(page.getByRole('main').getByRole('link', { name: /emanrimawi@gmail.com/i })).toBeVisible();
+  await expect(page.getByRole('main').getByRole('link', { name: /diversityincludesdisability@gmail.com/i })).toBeVisible();
 });
 
 test('Contact form has no backend action (scaffold only)', async ({ page }) => {

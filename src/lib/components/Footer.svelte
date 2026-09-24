@@ -13,7 +13,7 @@
 			</ul>
 		</nav>
 		<p class="contact">
-			Contact: <a href="mailto:emanrimawi@gmail.com">emanrimawi@gmail.com</a>
+			Contact: <a href="mailto:diversityincludesdisability@gmail.com">diversityincludesdisability@gmail.com</a>
 		</p>
 		<p class="attribution">&copy; Eman Rimawi-Doster. Diversity Includes Disability.</p>
 	</div>

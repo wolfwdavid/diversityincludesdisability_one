@@ -34,7 +34,7 @@ test('contact: server error shows an assertive alert + mailto fallback (FORM-01)
 	await page.getByRole('button', { name: /send message/i }).click();
 	await expect(page.locator('.form-status.err')).toHaveAttribute('role', 'alert');
 	// Scoped to the error-fallback disclaimer: the page also has a lede + footer mailto link.
-	await expect(page.locator('form .disclaimer').getByRole('link', { name: /emanrimawi@gmail.com/i })).toBeVisible();
+	await expect(page.locator('form .disclaimer').getByRole('link', { name: /diversityincludesdisability@gmail.com/i })).toBeVisible();
 });
 
 test('contact: network failure is handled distinctly (FORM-01)', async ({ page }) => {

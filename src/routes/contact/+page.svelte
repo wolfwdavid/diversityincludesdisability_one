@@ -34,7 +34,7 @@
 <h1>Contact</h1>
 <p class="lede">
 	Prefer email? Reach us directly at
-	<a href="mailto:emanrimawi@gmail.com">emanrimawi@gmail.com</a>.
+	<a href="mailto:diversityincludesdisability@gmail.com">diversityincludesdisability@gmail.com</a>.
 </p>
 
 {#if status === 'ok'}
@@ -73,7 +73,7 @@
 			<FormStatus kind="err" message={statusMessage} />
 			<p class="disclaimer">
 				If this keeps happening, email us at
-				<a href="mailto:emanrimawi@gmail.com">emanrimawi@gmail.com</a>.
+				<a href="mailto:diversityincludesdisability@gmail.com">diversityincludesdisability@gmail.com</a>.
 			</p>
 		{/if}
 	</form>
