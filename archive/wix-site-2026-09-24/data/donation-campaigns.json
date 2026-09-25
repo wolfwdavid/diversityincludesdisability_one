@@ -1,0 +1,3 @@
+{"exportedAt":"2026-09-24","source":"Wix Donations campaigns query (campaign definition only; no donor data exported)","donationCampaigns":[
+{"id":"22aba8a5-0398-4231-8701-dcf16f0cecb5","name":"Fundraising Campaign","createdDate":"2025-11-06T22:07:40.134Z","status":"COLLECTING","archived":false,"coverImage":"https://static.wixstatic.com/media/d40357_c683ca4df97846de931ee6e88afec164~mv2.png","customAmountEnabled":false,"predefinedDonationAmounts":["50","100","200","1000"],"currency":"USD","donationFrequencies":["ONE_TIME","MONTH","YEAR"],"commentsEnabled":false,"askDonorCoverFee":false}
+]}
