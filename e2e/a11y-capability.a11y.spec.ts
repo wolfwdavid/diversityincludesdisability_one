@@ -11,7 +11,8 @@ const ROUTES = [
 	'/get-involved/',
 	'/events/',
 	'/blog/',
-	'/contact/'
+	'/contact/',
+	'/accessibility/'
 ];
 
 const seed = (page: Page, theme: 'accessible' | 'premium') =>

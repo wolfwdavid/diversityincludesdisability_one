@@ -15,6 +15,8 @@
 		<p class="contact">
 			Contact: <a href="mailto:diversityincludesdisability@gmail.com">diversityincludesdisability@gmail.com</a>
 		</p>
+		<!-- Footer-only (Scope convention): keeps the primary nav at its pinned 8 items. -->
+		<p class="statement"><a href="{base}/accessibility">Accessibility statement</a></p>
 		<p class="attribution">&copy; Eman Rimawi-Doster. Diversity Includes Disability.</p>
 	</div>
 </footer>

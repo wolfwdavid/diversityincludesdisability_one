@@ -5,8 +5,8 @@ import { test, expect, type Page } from '@playwright/test';
 // themes; the Accessible theme is the conformance target, Premium is cross-theme corroboration.
 // Nothing is excluded and no rule is disabled: a violation here means a real defect to fix in src/.
 //
-// Route list mirrors src/lib/data/nav.ts plus every blog post so the mdsvex/Shiki content
-// path is covered too.
+// Route list mirrors src/lib/data/nav.ts plus every blog post (the mdsvex/Shiki content path)
+// and the footer-only /accessibility/ statement.
 const ROUTES = [
 	'/',
 	'/about/',
@@ -17,7 +17,8 @@ const ROUTES = [
 	'/blog/',
 	'/blog/welcome/',
 	'/blog/our-accessibility-commitment/',
-	'/contact/'
+	'/contact/',
+	'/accessibility/'
 ];
 
 const WCAG = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
@@ -76,6 +77,22 @@ for (const path of ROUTES) {
 		// networkidle so the async 3D hero import (Home) has settled before the scan.
 		await page.goto(`.${path}`, { waitUntil: 'networkidle' });
 		await expectHydrated(page, 'premium', problems);
+		const r = await new AxeBuilder({ page }).withTags(WCAG).analyze();
+		expect(r.violations, describeViolations(r.violations)).toEqual([]);
+	});
+}
+
+// The branded 404 (src/routes/+error.svelte) is client-rendered inside the layout after the
+// 404.html fallback boots; scan it too. The document itself is a 404 by design, so only
+// sub-resource failures count as problems here.
+for (const theme of ['accessible', 'premium'] as const) {
+	test(`axe WCAG 2.2 AA passes on the branded 404 page (${theme})`, async ({ page }) => {
+		const problems = guard(page);
+		await seed(page, theme);
+		const res = await page.goto('./definitely-not-a-page-xyz/', { waitUntil: 'networkidle' });
+		expect(res?.status()).toBe(404);
+		await expect(page.getByRole('navigation', { name: /error page/i })).toBeVisible();
+		await expectHydrated(page, theme, problems.filter((p) => !/definitely-not-a-page-xyz/.test(p)));
 		const r = await new AxeBuilder({ page }).withTags(WCAG).analyze();
 		expect(r.violations, describeViolations(r.violations)).toEqual([]);
 	});

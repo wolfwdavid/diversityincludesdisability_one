@@ -6,8 +6,11 @@ echo "Verifying $BASE_URL"
 # DEPLOY-01: root is live and HTML
 curl -sfI "$BASE_URL/" | grep -qi 'content-type: text/html'
 
-# DEPLOY-03: deep link survives a hard GET / refresh
+# DEPLOY-03: deep links survive a hard GET / refresh
 curl -sfI "$BASE_URL/about/" >/dev/null
+# A11Y-06: the accessibility statement is deployed and its prerendered HTML carries the page
+curl -sfI "$BASE_URL/accessibility/" | grep -qi 'content-type: text/html'
+curl -s "$BASE_URL/accessibility/" | grep -q 'Accessibility statement'
 
 # DEPLOY-03: unknown path serves our SPA 404 fallback (GitHub returns a 404 status
 # and serves adapter-static's fallback 404.html — the SvelteKit shell that boots the
@@ -22,6 +25,10 @@ echo "$FALLBACK" | grep -q '__sveltekit'
 
 # DEPLOY-04 + DEPLOY-02: an _app asset actually loads (proves .nojekyll + base path)
 ASSET=$(curl -s "$BASE_URL/" | grep -oE '/_app/immutable/[^"]+\.(js|css)' | head -1)
+test -n "$ASSET"
+curl -sfI "$BASE_URL$ASSET" >/dev/null
+# ...and the statement page's own _app asset resolves too (deep page, same base path)
+ASSET=$(curl -s "$BASE_URL/accessibility/" | grep -oE '/_app/immutable/[^"]+\.(js|css)' | head -1)
 test -n "$ASSET"
 curl -sfI "$BASE_URL$ASSET" >/dev/null
 

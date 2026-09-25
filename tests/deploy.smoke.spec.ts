@@ -27,7 +27,15 @@ test('DEPLOY-03: deep-link /about/ resolves on a hard load', async ({ page }) =>
 	await expect(page.locator('h1')).toHaveText(/about/i);
 });
 
+test('DEPLOY: /accessibility/ deep-link resolves', async ({ page }) => {
+	const res = await page.goto('accessibility/');
+	expect(res?.status()).toBeLessThan(400);
+	await expect(page.locator('h1')).toHaveText(/accessibility statement/i);
+});
+
 test('DEPLOY-03: unknown path serves our branded 404 fallback', async ({ page }) => {
 	await page.goto('definitely-not-a-page-xyz/');
 	await expect(page.locator('body')).toContainText(/Diversity Includes Disability/i);
+	// The branded page (not GitHub's chrome) offers a way back in.
+	await expect(page.getByRole('navigation', { name: /error page/i }).getByRole('link', { name: /return home/i })).toBeVisible();
 });
