@@ -7,7 +7,10 @@ import rehypeSlug from 'rehype-slug';
 
 // One highlighter for the whole build (lazy singleton — never per code block).
 let highlighter;
-const codeTheme = 'github-dark';
+// github-dark-high-contrast: every token foreground clears WCAG 1.4.3 (4.5:1) on the block
+// background. Plain github-dark's comment colour (#6a737d on #24292e) is only 3.04:1 and failed
+// the Phase-6 axe gate on /blog/welcome/ in both themes.
+const codeTheme = 'github-dark-high-contrast';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
